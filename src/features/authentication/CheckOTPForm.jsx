@@ -1,13 +1,13 @@
 import { useMutation } from "@tanstack/react-query";
 import React, { useEffect, useState } from "react";
 import toast from "react-hot-toast";
+import { CiEdit } from "react-icons/ci";
 import { HiArrowSmRight } from "react-icons/hi";
 import OtpInput from "react-otp-input";
 import { checkOtp } from "../service/authService";
-
 const RESEND_TIME = 5;
 
-function CheckOTPForm({ phoneNumber, onBack }) {
+function CheckOTPForm({ phoneNumber, onBack, onSubmit, otpResponse }) {
   const [otp, setOtp] = useState("");
   const [time, setTime] = useState(RESEND_TIME);
   const { isPending, error, data, mutateAsync } = useMutation({
@@ -38,11 +38,19 @@ function CheckOTPForm({ phoneNumber, onBack }) {
       <button onClick={onBack}>
         <HiArrowSmRight className="w-6 h-6 text-secondary-500" />
       </button>
+      {otpResponse && (
+        <p>
+          {otpResponse?.message}
+          <button onClick={onBack}>
+            <CiEdit />
+          </button>
+        </p>
+      )}
       <div className="mb-4">
         {time > 0 ? (
           <p>{time}ثانیه تا ارسال مجدد کد</p>
         ) : (
-          <button>ارسال مجدد کد تایید</button>
+          <button onClick={onSubmit}>ارسال مجدد کد تایید</button>
         )}
       </div>
       <form action="" className="space-y-8" onSubmit={checkOtpHandler}>
