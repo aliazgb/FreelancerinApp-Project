@@ -13,7 +13,7 @@ function TextField({ label, name, value, onChange }) {
         type="number"
         className="py-2 px-4 w-full rounded-xl text-secondary-900 border border-gray-300 
         hover:border-primary-300 focus:border-primary-300  transition-all duration-300 ease-in-out focus:bg-white focus:shadow-lg
-        focus:shadow-primary-200"
+        focus:shadow-primary-200 bg-gray-100"
       />
     </div>
   );

@@ -34,7 +34,7 @@ function CheckOTPForm({ phoneNumber, onBack, onSubmit, otpResponse }) {
     };
   }, []);
   return (
-    <div>
+    <div className="pt-9">
       <button onClick={onBack}>
         <HiArrowSmRight className="w-6 h-6 text-secondary-500" />
       </button>

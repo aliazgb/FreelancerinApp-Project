@@ -6,8 +6,8 @@ import Loader from "../ui/Loader";
 import TextField from "../ui/TextField";
 function SendOtpForm({ onChange, phoneNumber, onSubmit,isSendig }) {
   return (
-    <div>
-      <form action="" className="space-y-4" onSubmit={onSubmit}>
+    <div className="pt-9">
+      <form action="" className="space-y-6" onSubmit={onSubmit}>
         <TextField
           label="شماره موبایل"
           name="phonenumber"
