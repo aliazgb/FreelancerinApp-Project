@@ -4,35 +4,39 @@ import toast from "react-hot-toast";
 import { CiEdit } from "react-icons/ci";
 import { HiArrowSmRight } from "react-icons/hi";
 import OtpInput from "react-otp-input";
+import { useNavigate } from "react-router-dom";
 import { checkOtp } from "../service/authService";
-const RESEND_TIME = 5;
 
 function CheckOTPForm({ phoneNumber, onBack, onSubmit, otpResponse }) {
   const [otp, setOtp] = useState("");
-  const [time, setTime] = useState(RESEND_TIME);
-  const { isPending, error, data, mutateAsync } = useMutation({
+  const [time, setTime] = useState(5);
+  const navigate = useNavigate();
+  const { isPending, mutateAsync } = useMutation({
     mutationFn: checkOtp,
   });
   const checkOtpHandler = async (e) => {
     e.preventDefault();
     try {
-      const data = await mutateAsync({ phoneNumber, otp });
-      alert(data.message);
+      const { message, user } = await mutateAsync({ phoneNumber, otp });
+      if (!user.isActive) return navigate("/complete-profile");
+      if (user.status !== 2) {
+        navigate("/");
+        toast.success("پروفایل شما در انتظار بررسی است !");
+        return;
+      }
+      toast.success(message);
     } catch (error) {
       toast.error(error?.response?.data?.message);
     }
   };
   useEffect(() => {
+    if (time === 0) return;
     const timer = setInterval(() => {
       setTime((t) => t - 1);
     }, 1000);
 
-    return () => {
-      if (timer) {
-        clearInterval(timer);
-      }
-    };
-  }, []);
+    return () => clearInterval(timer);
+  }, [time]);
   return (
     <div className="pt-9">
       <button onClick={onBack}>
