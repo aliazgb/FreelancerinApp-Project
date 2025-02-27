@@ -38,6 +38,7 @@ function CheckOTPForm({ phoneNumber, onBack, onSubmit, otpResponse }) {
     return () => clearInterval(timer);
   }, [time]);
   return (
+    <div className="container xl:w-[30%] ">
     <div className="pt-9">
       <button onClick={onBack}>
         <HiArrowSmRight className="w-6 h-6 text-secondary-500" />
@@ -75,6 +76,7 @@ function CheckOTPForm({ phoneNumber, onBack, onSubmit, otpResponse }) {
         />
         <button className="btn btn--primary w-full">تایید</button>
       </form>
+    </div>
     </div>
   );
 }

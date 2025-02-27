@@ -8,7 +8,8 @@ app.interceptors.request.use(
   (res) => res,
   async (err) => {
     const originalConfig = err.config;
-    if (err.response.status == 401) {
+    if (err.response.status == 401 && !originalConfig._retry) {
+      originalConfig._retry = true;
       try {
         const { date } = await axios.get(`${BASE_URL}/user/refresh-token`, {
           withCredentials: true,

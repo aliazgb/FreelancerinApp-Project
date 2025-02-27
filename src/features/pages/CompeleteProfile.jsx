@@ -20,6 +20,7 @@ function CompeleteProfile() {
     }
   };
   return (
+    <div className="container xl:w-[30%] ">
     <div className="pt-9">
       <form className="space-y-8" onSubmit={handleSubmit}>
         <TextField
@@ -27,12 +28,14 @@ function CompeleteProfile() {
           name="name"
           value={name}
           onChange={(e) => setName(e.target.value)}
+          type={"text"}
         />
         <TextField
           label="ایمیل"
           name="email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
+          type={"text"}
         />
         <div className="flex justify-center gap-x-6">
           <RadioInput
@@ -52,6 +55,7 @@ function CompeleteProfile() {
         </div>
         <button className="btn btn--primary w-full">تایید</button>
       </form>
+    </div>
     </div>
   );
 }
