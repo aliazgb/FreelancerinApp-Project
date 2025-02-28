@@ -4,7 +4,7 @@ const app = axios.create({
   baseURL: BASE_URL,
   withCredentials: true,
 });
-app.interceptors.request.use(
+app.interceptors.response.use(
   (res) => res,
   async (err) => {
     const originalConfig = err.config;
