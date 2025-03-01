@@ -1,6 +1,6 @@
 import React from "react";
 
-function RadioInput({ name, id, value, onChange, checked }) {
+function RadioInput({ name, id, value, onChange, checked ,label}) {
   return (
     <div className="flex gap-x-2">
       <input
@@ -11,7 +11,7 @@ function RadioInput({ name, id, value, onChange, checked }) {
         onChange={onChange}
         checked={checked}
       />
-      <label htmlFor="OWNER">کارفرما</label>
+      <label htmlFor={id}>{label}</label>
     </div>
   );
 }

@@ -44,6 +44,7 @@ function CompeleteProfile() {
             value="OWNER"
             onChange={(e) => setRole(e.target.value)}
             checked={role == "OWNER"}
+            label="فریلنسر"
           />
           <RadioInput
             name="role"
@@ -51,6 +52,7 @@ function CompeleteProfile() {
             value="FREELANCER"
             onChange={(e) => setRole(e.target.value)}
             checked={role == "FREELANCER"}
+            label="کارفرما"
           />
         </div>
         <button className="btn btn--primary w-full">تایید</button>
