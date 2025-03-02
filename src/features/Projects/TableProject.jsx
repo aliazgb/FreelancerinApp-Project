@@ -1,9 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
+import { FaRegTrashCan } from "react-icons/fa6";
+import { HiOutlinePencilSquare } from "react-icons/hi2";
 import toLocalDateShort from "../../utils/toLocalDateShort";
 import truncateText from "../../utils/truncateText";
 import Table from "./Table";
+import Modal from "../ui/Modal";
 
 function TableProject({ project, index }) {
+  const [isEditOpen ,setIsEditOpen]=useState()
   return (
     <Table.Row>
       <td>{index + 1}</td>
@@ -28,7 +32,17 @@ function TableProject({ project, index }) {
           <span className="badge badge--danger">بسته</span>
         )}
       </td>
-      <td>...</td>
+      <td>
+        <div className="flex gap-x-4">
+          <button onClick={()=>setIsEditOpen(true)}>
+            <HiOutlinePencilSquare className="w-5 h-5 text-primary-900" />
+          </button>
+          <Modal title="modal title " open={isEditOpen} onClose={()=>setIsEditOpen(false)}>this is modal ...</Modal>
+          <button>
+            <FaRegTrashCan className="w-5 h-5 text-error" />
+          </button>
+        </div>
+      </td>
     </Table.Row>
   );
 }
