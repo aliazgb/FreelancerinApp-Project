@@ -48,7 +48,11 @@ function TableProject({ project, index }) {
               open={isEditOpen}
               onClose={() => setIsEditOpen(false)}
             >
-              <ConfirmDelete resourceName={project.title} />
+              <ConfirmDelete
+                resourceName={project.title}
+                onclose={() => setIsEditOpen(false)}
+                onConfirm={() => removeProject(project._id)}
+              />
             </Modal>
           </>
           <>
@@ -63,6 +67,7 @@ function TableProject({ project, index }) {
               <ConfirmDelete
                 onclose={() => setIsDeleteOpen(false)}
                 onConfirm={() => removeProject(project._id)}
+                resourceName={project.title}
               />
             </Modal>
           </>

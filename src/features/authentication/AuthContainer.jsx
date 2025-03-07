@@ -4,8 +4,10 @@ import toast from "react-hot-toast";
 import { getOtp } from "../service/authService";
 import CheckOTPForm from "./CheckOTPForm";
 import SendOtpForm from "./SendOtpForm";
+import { useForm } from "react-hook-form";
 
 function AuthContainer() {
+ const {register}= useForm()
   const [step, setStep] = useState(1);
   const [phoneNumber, setPhoneNumber] = useState("");
   const {
