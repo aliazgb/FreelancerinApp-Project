@@ -12,9 +12,10 @@ function CompeleteProfile() {
     mutationFn: compeleteProfile,
   });
   const onSubmit = async (data) => {
-    console.log(data);
+    console.log(data)
     try {
       const { user, message } = await mutateAsync(data);
+      
       toast.success(message);
     } catch (error) {
       toast.error(error?.response?.data?.message);

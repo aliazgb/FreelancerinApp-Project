@@ -1,7 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import { useForm } from "react-hook-form";
+import RHFSelect from "../ui/RHFSelect";
 import TextField from "../ui/TextField";
+import { TagsInput } from "react-tag-input-component";
 function CreateProjectForm() {
+  const [tags,setTags]=useState([])
   const {
     register,
     handleSubmit,
@@ -10,6 +13,7 @@ function CreateProjectForm() {
   const onSubmit = (data) => {
     console.log(data);
   };
+
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <TextField
@@ -19,8 +23,8 @@ function CreateProjectForm() {
         register={register}
         name={"title"}
         validationSchema={{
-        required: "پر شدن این فیلد ضروریست",
-        minLength: {
+          required: "پر شدن این فیلد ضروریست",
+          minLength: {
             value: 10,
             message: "این فیلد حداقل باید دارای 20 کاراکتر باشد",
           },
@@ -49,9 +53,19 @@ function CreateProjectForm() {
         type="number"
         validationSchema={{
           required: "بودجه ضروریست",
-         
         }}
       />
+      <RHFSelect
+        label="دسته بندی"
+        name="category"
+        register={register}
+        required
+        options={[]}
+      />
+      <div>
+        <label className="mb-2 block text-secondary-700">تگ ها</label>
+        <TagsInput value={tags} onChange={setTags} name="tags"/>
+      </div>
       <button type="submit" className="btn btn--primary w-full mt-4">
         تایید
       </button>
