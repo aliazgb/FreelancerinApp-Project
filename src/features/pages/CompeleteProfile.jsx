@@ -1,5 +1,5 @@
 import { useMutation } from "@tanstack/react-query";
-import React from "react";
+import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
 import { compeleteProfile } from "../service/authService";
@@ -12,10 +12,10 @@ function CompeleteProfile() {
     mutationFn: compeleteProfile,
   });
   const onSubmit = async (data) => {
-    console.log(data)
+    console.log(data);
     try {
       const { user, message } = await mutateAsync(data);
-      
+
       toast.success(message);
     } catch (error) {
       toast.error(error?.response?.data?.message);
@@ -59,6 +59,7 @@ function CompeleteProfile() {
               validationSchema={{ required: "انتخاب نقش ضروری است" }}
             />
           </div>
+          
           <button type="submit" className="btn btn--primary w-full">
             تایید
           </button>

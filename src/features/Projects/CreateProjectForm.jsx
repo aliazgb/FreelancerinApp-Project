@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
+import { TagsInput } from "react-tag-input-component";
+import DatePickerField from "../ui/DatePickerField";
 import RHFSelect from "../ui/RHFSelect";
 import TextField from "../ui/TextField";
-import { TagsInput } from "react-tag-input-component";
 function CreateProjectForm() {
-  const [tags,setTags]=useState([])
+  const [date, setDate] = useState(new Date());
+  const [tags, setTags] = useState([]);
   const {
     register,
     handleSubmit,
@@ -64,8 +66,9 @@ function CreateProjectForm() {
       />
       <div>
         <label className="mb-2 block text-secondary-700">تگ ها</label>
-        <TagsInput value={tags} onChange={setTags} name="tags"/>
+        <TagsInput value={tags} onChange={setTags} name="tags" />
       </div>
+      <DatePickerField date={date} setDate={setDate} labe="ددلاین" />
       <button type="submit" className="btn btn--primary w-full mt-4">
         تایید
       </button>
