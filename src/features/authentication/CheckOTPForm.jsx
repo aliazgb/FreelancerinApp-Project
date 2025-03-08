@@ -7,7 +7,13 @@ import OtpInput from "react-otp-input";
 import { useNavigate } from "react-router-dom";
 import { checkOtp } from "../service/authService";
 
-function CheckOTPForm({ phoneNumber, onBack, onSubmit, otpResponse }) {
+function CheckOTPForm({
+  phoneNumber,
+  onBack,
+  onSubmit,
+  otpResponse,
+  register,
+}) {
   const [otp, setOtp] = useState("");
   const [time, setTime] = useState(5);
   const navigate = useNavigate();
@@ -39,44 +45,46 @@ function CheckOTPForm({ phoneNumber, onBack, onSubmit, otpResponse }) {
   }, [time]);
   return (
     <div className="container xl:w-[30%] ">
-    <div className="pt-9">
-      <button onClick={onBack}>
-        <HiArrowSmRight className="w-6 h-6 text-secondary-500" />
-      </button>
-      {otpResponse && (
-        <p>
-          {otpResponse?.message}
-          <button onClick={onBack}>
-            <CiEdit />
-          </button>
-        </p>
-      )}
-      <div className="mb-4">
-        {time > 0 ? (
-          <p>{time}ثانیه تا ارسال مجدد کد</p>
-        ) : (
-          <button onClick={onSubmit}>ارسال مجدد کد تایید</button>
+      <div className="pt-9">
+        <button onClick={onBack}>
+          <HiArrowSmRight className="w-6 h-6 text-secondary-500" />
+        </button>
+        {otpResponse && (
+          <p>
+            {otpResponse?.message}
+            <button onClick={onBack}>
+              <CiEdit />
+            </button>
+          </p>
         )}
+        <div className="mb-4">
+          {time > 0 ? (
+            <p>{time}ثانیه تا ارسال مجدد کد</p>
+          ) : (
+            <button onClick={onSubmit}>ارسال مجدد کد تایید</button>
+          )}
+        </div>
+        <form action="" className="space-y-8" onSubmit={checkOtpHandler}>
+          <p className="font-bold text-secondary-800">
+            کد تایید را وارد کنید !
+          </p>
+          <OtpInput
+            value={otp}
+            onChange={setOtp}
+            numInputs={6}
+            renderSeparator={<span>-</span>}
+            renderInput={(props) => <input {...props} />}
+            containerStyle="flex flex-row-reverse gap-x-2 justify-center"
+            inputStyle={{
+              width: "2.5rem",
+              padding: "0.5rem 0.2rem",
+              border: "1px solid rgb(var(--color-primary-300))",
+              borderRadius: "0.5rem",
+            }}
+          />
+          <button className="btn btn--primary w-full">تایید</button>
+        </form>
       </div>
-      <form action="" className="space-y-8" onSubmit={checkOtpHandler}>
-        <p className="font-bold text-secondary-800">کد تایید را وارد کنید !</p>
-        <OtpInput
-          value={otp}
-          onChange={setOtp}
-          numInputs={6}
-          renderSeparator={<span>-</span>}
-          renderInput={(props) => <input {...props} />}
-          containerStyle="flex flex-row-reverse gap-x-2 justify-center"
-          inputStyle={{
-            width: "2.5rem",
-            padding: "0.5rem 0.2rem",
-            border: "1px solid rgb(var(--color-primary-300))",
-            borderRadius: "0.5rem",
-          }}
-        />
-        <button className="btn btn--primary w-full">تایید</button>
-      </form>
-    </div>
     </div>
   );
 }

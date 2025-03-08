@@ -1,15 +1,13 @@
 import React from "react";
 
-function RadioInput({ name, id, value, onChange, checked ,label}) {
+function RadioInput({ name, id, value, label, register, validationSchema }) {
   return (
     <div className="flex gap-x-2">
       <input
+        {...register(name, validationSchema)}
         type="radio"
-        name={name}
         id={id}
         value={value}
-        onChange={onChange}
-        checked={checked}
       />
       <label htmlFor={id}>{label}</label>
     </div>
