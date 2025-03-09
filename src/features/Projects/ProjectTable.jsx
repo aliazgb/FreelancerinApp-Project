@@ -16,9 +16,7 @@ function ProjectTable() {
   return (
     
     <Table>
-  
       <Table.Header>
-        {" "}
         <th>#</th>
         <th>عنوان پروژه</th>
         <th>دسته بندی</th>
@@ -28,7 +26,7 @@ function ProjectTable() {
         <th>فریلنسر</th>
         <th>وضعیت</th>
         <th>عملیات</th>
-      </Table.Header>{" "}
+      </Table.Header>
       <Table.Body>
         {projects.map((project, index) => (
           <TableProject key={project._id} project={project} index={index} />

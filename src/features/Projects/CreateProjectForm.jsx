@@ -1,19 +1,21 @@
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { TagsInput } from "react-tag-input-component";
+import useCategory from "../hooks/useCategory";
 import DatePickerField from "../ui/DatePickerField";
 import RHFSelect from "../ui/RHFSelect";
 import TextField from "../ui/TextField";
 function CreateProjectForm() {
   const [date, setDate] = useState(new Date());
   const [tags, setTags] = useState([]);
+  const { rawCategories, categories } = useCategory();
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
   const onSubmit = (data) => {
-    console.log(data);
+    console.log(categories);
   };
 
   return (
@@ -62,13 +64,13 @@ function CreateProjectForm() {
         name="category"
         register={register}
         required
-        options={[]}
+        options={categories}
       />
       <div>
         <label className="mb-2 block text-secondary-700">تگ ها</label>
         <TagsInput value={tags} onChange={setTags} name="tags" />
       </div>
-      <DatePickerField date={date} setDate={setDate} labe="ددلاین" />
+      <DatePickerField date={date} setDate={setDate} label="ددلاین" />
       <button type="submit" className="btn btn--primary w-full mt-4">
         تایید
       </button>

@@ -16,8 +16,8 @@ function TableProject({ project, index }) {
   return (
     <Table.Row>
       <td>{index + 1}</td>
-      <td>{truncateText(project.title, 30)}</td>
-      <td>{project.category.title}</td>
+      <td>{truncateText(project.title, 10)}</td>
+      <td>{project?.category?.title}</td>
       <td>{project.budget}</td>
       <td>{toLocalDateShort(project.deadline)}</td>
       <td>
