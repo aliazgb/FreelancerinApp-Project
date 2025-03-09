@@ -13,7 +13,7 @@ export default function useCategory() {
     label: item.title,
     value: item._id,
   }));
-  console.log(categories);
+
   const transFormedCategories = rawCategories.map((item) => ({
     label: item.title,
     value: item.englishTitle,

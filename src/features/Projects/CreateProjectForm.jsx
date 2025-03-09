@@ -5,17 +5,25 @@ import useCategory from "../hooks/useCategory";
 import DatePickerField from "../ui/DatePickerField";
 import RHFSelect from "../ui/RHFSelect";
 import TextField from "../ui/TextField";
+import useCreateProject from "./useCreateProject";
 function CreateProjectForm() {
   const [date, setDate] = useState(new Date());
   const [tags, setTags] = useState([]);
-  const { rawCategories, categories } = useCategory();
+  const { categories } = useCategory();
+  const { createProject, isCreating } = useCreateProject();
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
   const onSubmit = (data) => {
-    console.log(categories);
+    const newProject = {
+      ...data,
+      deadline: new Date(date).toISOString(),
+      tags,
+    };
+
+    createProject(newProject)
   };
 
   return (
@@ -53,7 +61,7 @@ function CreateProjectForm() {
         required
         errors={errors}
         register={register}
-        name={"budge"}
+        name={"budget"}
         type="number"
         validationSchema={{
           required: "بودجه ضروریست",
