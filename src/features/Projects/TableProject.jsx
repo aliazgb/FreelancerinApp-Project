@@ -5,9 +5,10 @@ import toLocalDateShort from "../../utils/toLocalDateShort";
 import truncateText from "../../utils/truncateText";
 import ConfirmDelete from "../ui/ConfirmDelete";
 import Modal from "../ui/Modal";
-import Table from "./Table";
-import useRemoveProject from "./useRemoveProject";
 import CreateProjectForm from "./CreateProjectForm";
+import Table from "./Table";
+import ToggleProjectStatus from "./ToggleProjectStatus";
+import useRemoveProject from "./useRemoveProject";
 // import useRemoveProject from "./useRemoveProject";
 
 function TableProject({ project, index }) {
@@ -32,11 +33,7 @@ function TableProject({ project, index }) {
       </td>
       <td>{project.freelancer?.name || "-"}</td>
       <td>
-        {project.status == "OPEN" ? (
-          <span className="badge badge--success ">باز</span>
-        ) : (
-          <span className="badge badge--danger">بسته</span>
-        )}
+        <ToggleProjectStatus project={project} />
       </td>
       <td>
         <div className="flex gap-x-4">
@@ -49,7 +46,10 @@ function TableProject({ project, index }) {
               open={isEditOpen}
               onClose={() => setIsEditOpen(false)}
             >
-              <CreateProjectForm onClose={()=>setIsEditOpen(false)} editProject={project}/>
+              <CreateProjectForm
+                onClose={() => setIsEditOpen(false)}
+                editProject={project}
+              />
               {/* <ConfirmDelete
                 resourceName={project.title}
                 onclose={() => setIsEditOpen(false)}

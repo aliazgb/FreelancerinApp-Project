@@ -47,7 +47,14 @@ function CreateProjectForm({ onClose, editProject = {} }) {
     };
 
     if (isEditSession) {
-      selectEdit({ id: editId, newProject });
+      selectEdit(
+        { id: editId, newProject },
+        {
+          onSuccess: () => {
+            onClose();
+          },
+        }
+      );
     } else {
       createProject(newProject, {
         onSuccess: () => {
