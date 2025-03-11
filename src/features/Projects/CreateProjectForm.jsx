@@ -6,16 +6,39 @@ import DatePickerField from "../ui/DatePickerField";
 import RHFSelect from "../ui/RHFSelect";
 import TextField from "../ui/TextField";
 import useCreateProject from "./useCreateProject";
-function CreateProjectForm() {
-  const [date, setDate] = useState(new Date());
-  const [tags, setTags] = useState([]);
-  const { categories } = useCategory();
-  const { createProject, isCreating } = useCreateProject();
+import useEditProject from "./useEditProject";
+function CreateProjectForm({ onClose, editProject = {} }) {
+  const { _id: editId } = editProject;
+  const isEditSession = Boolean(editId);
+  const { selectEdit, isEditing } = useEditProject();
+  const {
+    budget,
+    title,
+    description,
+    deadline,
+    category,
+    tags: prevTags,
+  } = editProject;
+  let editValue = {};
+  if (isEditSession) {
+    editValue = {
+      title,
+      budget,
+      description,
+      deadline,
+      category: category._id,
+    };
+  }
+
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm();
+  } = useForm({ defaultValues: editValue });
+  const [date, setDate] = useState(new Date(deadline || ""));
+  const [tags, setTags] = useState(prevTags || []);
+  const { categories } = useCategory();
+  const { createProject, isCreating } = useCreateProject();
   const onSubmit = (data) => {
     const newProject = {
       ...data,
@@ -23,7 +46,15 @@ function CreateProjectForm() {
       tags,
     };
 
-    createProject(newProject)
+    if (isEditSession) {
+      selectEdit({ id: editId, newProject });
+    } else {
+      createProject(newProject, {
+        onSuccess: () => {
+          onClose();
+        },
+      });
+    }
   };
 
   return (

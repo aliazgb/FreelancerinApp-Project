@@ -7,6 +7,7 @@ import ConfirmDelete from "../ui/ConfirmDelete";
 import Modal from "../ui/Modal";
 import Table from "./Table";
 import useRemoveProject from "./useRemoveProject";
+import CreateProjectForm from "./CreateProjectForm";
 // import useRemoveProject from "./useRemoveProject";
 
 function TableProject({ project, index }) {
@@ -48,11 +49,12 @@ function TableProject({ project, index }) {
               open={isEditOpen}
               onClose={() => setIsEditOpen(false)}
             >
-              <ConfirmDelete
+              <CreateProjectForm onClose={()=>setIsEditOpen(false)} editProject={project}/>
+              {/* <ConfirmDelete
                 resourceName={project.title}
                 onclose={() => setIsEditOpen(false)}
                 onConfirm={() => removeProject(project._id)}
-              />
+              /> */}
             </Modal>
           </>
           <>
