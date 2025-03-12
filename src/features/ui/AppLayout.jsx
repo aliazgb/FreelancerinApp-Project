@@ -10,7 +10,7 @@ function AppLayout() {
         <Header />
         <Sidebar />
         <div className="bg-secondary-100 overflow-y-auto">
-          <div className="mx-auto max-w-screen-md">
+          <div className="mx-auto max-w-screen-lg mt-10">
          
             <Outlet />
           </div>

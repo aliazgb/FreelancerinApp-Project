@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { FaRegTrashCan } from "react-icons/fa6";
-import { HiOutlinePencilSquare } from "react-icons/hi2";
+import { HiEye, HiOutlinePencilSquare } from "react-icons/hi2";
+import { Link } from "react-router-dom";
 import toLocalDateShort from "../../utils/toLocalDateShort";
 import truncateText from "../../utils/truncateText";
 import ConfirmDelete from "../ui/ConfirmDelete";
@@ -9,7 +10,6 @@ import CreateProjectForm from "./CreateProjectForm";
 import Table from "./Table";
 import ToggleProjectStatus from "./ToggleProjectStatus";
 import useRemoveProject from "./useRemoveProject";
-// import useRemoveProject from "./useRemoveProject";
 
 function TableProject({ project, index }) {
   const [isEditOpen, setIsEditOpen] = useState();
@@ -50,11 +50,6 @@ function TableProject({ project, index }) {
                 onClose={() => setIsEditOpen(false)}
                 editProject={project}
               />
-              {/* <ConfirmDelete
-                resourceName={project.title}
-                onclose={() => setIsEditOpen(false)}
-                onConfirm={() => removeProject(project._id)}
-              /> */}
             </Modal>
           </>
           <>
@@ -74,6 +69,11 @@ function TableProject({ project, index }) {
             </Modal>
           </>
         </div>
+      </td>
+      <td>
+        <Link to={project._id} className="flex justify-center text-primary-900">
+          <HiEye />
+        </Link>
       </td>
     </Table.Row>
   );
