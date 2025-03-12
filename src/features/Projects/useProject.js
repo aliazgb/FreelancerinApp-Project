@@ -7,6 +7,7 @@ export function useProject() {
   const { data, isLoading } = useQuery({
     queryKey: ["projects",id],
     queryFn:()=> getProject(id),
+    retry:false
   });
   const { project } = data || {};
   return { project, isLoading };

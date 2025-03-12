@@ -44,6 +44,7 @@ function CreateProjectForm({ onClose, editProject = {} }) {
       ...data,
       deadline: new Date(date).toISOString(),
       tags,
+      
     };
 
     if (isEditSession) {
