@@ -1,13 +1,11 @@
 import React from "react";
 import Table from "../Projects/Table";
-import useOwnerProject from "../Projects/useOwnerProject";
-import Loader from "../ui/Loader";
+import Empty from "../ui/Empty";
 import ProposalRow from "./ProposalRow";
 
-function ProposalTable() {
-  const { projects, isLoading } = useOwnerProject();
-  if (isLoading) {
-    return <Loader />;
+function ProposalTable({ proposal, index }) {
+  if (!proposal) {
+    return <Empty />;
   }
   return (
     <Table>
@@ -21,8 +19,8 @@ function ProposalTable() {
         <th>عملیات</th>
       </Table.Header>
       <Table.Body>
-        {projects.proposal.map((project, index) => (
-          <ProposalRow proposal={project.proposal} index={index} />
+        {proposal.map((project, index) => (
+          <ProposalRow proposal={project} index={index} />
         ))}
       </Table.Body>
     </Table>

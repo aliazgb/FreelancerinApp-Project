@@ -8,11 +8,11 @@ function Project() {
   if (isLoading) {
     return <Loader />;
   }
-  console.log(project)
+ 
   return (
     <div className="mr-8 space-y-6">
       <ProjectHeader project={project} />
-      <ProposalTable proposals={project.proposal} />
+      <ProposalTable proposal={project.proposal} />
     </div>
   );
 }
