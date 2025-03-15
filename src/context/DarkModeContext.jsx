@@ -1,11 +1,11 @@
-import { createContext, useContext, useEffect, useState } from "react";
+import { createContext, useContext, useEffect } from "react";
+import useLocalStorageTate from "../features/hooks/useLocalStorageTate";
 
 const darkModeContext = createContext();
 
 export function DarkModeContextProvider({ children }) {
-  const [darkMode, setIsDarkMode] = useState(false);
+  const [darkMode, setIsDarkMode, toggleDarkMode] = useLocalStorageTate("darkMode",false);
 
-  const toggleDarkMode = () => setIsDarkMode((prev) => !prev);
 
   useEffect(() => {
     if (darkMode) {

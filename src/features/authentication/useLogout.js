@@ -9,6 +9,7 @@ export default function useLogout() {
     mutationFn: logOutApi,
     onSuccess: () => {
       queryClient.removeQueries();
+      toast.success("You are signed out")
       navigate("/auth", { replace: true });
     },
     onError: (err) => {
