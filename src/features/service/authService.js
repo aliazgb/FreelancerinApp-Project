@@ -15,3 +15,7 @@ export function compeleteProfile(data) {
 export function getUser() {
   return http.get("/user/profile").then(({ data }) => data.data);
 }
+export function logOutApi() {
+  return http.post("/user/logout").then(({ data }) => data.data);
+}
+

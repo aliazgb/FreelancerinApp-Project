@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import truncateText from "../../utils/truncateText";
 import Table from "../Projects/Table";
-
+import Modal from "../ui/Modal";
+import ChangeProposalStatus from "./ChangeProposalStatus";
 const statusStyle = [
   {
     label: "رد شده",
@@ -19,6 +20,7 @@ const statusStyle = [
 
 function ProposalRow({ proposal, index }) {
   const { status } = proposal;
+  const [open, setOpen] = useState();
   return (
     <Table.Row>
       <td>{index + 1}</td>
@@ -33,7 +35,12 @@ function ProposalRow({ proposal, index }) {
           {statusStyle[status].label}
         </span>
       </td>
-      <td>++</td>
+      <td>
+        <Modal open={open} onClose={()=>setOpen(false)} title=" درخواست تغییر وضعیت">
+          <ChangeProposalStatus/>
+        </Modal>
+        <button onClick={()=>setOpen(true)}>تغییر وضعیت</button>
+      </td>
     </Table.Row>
   );
 }
