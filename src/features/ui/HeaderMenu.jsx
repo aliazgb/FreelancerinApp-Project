@@ -1,6 +1,5 @@
 import React from "react";
 import { CiUser } from "react-icons/ci";
-import { MdOutlineDarkMode } from "react-icons/md";
 import { Link } from "react-router-dom";
 import LogOut from "../authentication/LogOut";
 import ToggleDarkmode from "./ToggleDarkmode";
@@ -14,7 +13,7 @@ function HeaderMenu() {
         </Link>
       </li>
       <li>
-        <ToggleDarkmode/>
+        <ToggleDarkmode />
       </li>
       <li>
         <LogOut />
