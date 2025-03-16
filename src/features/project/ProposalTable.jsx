@@ -20,7 +20,7 @@ function ProposalTable({ proposal, index }) {
       </Table.Header>
       <Table.Body>
         {proposal.map((project, index) => (
-          <ProposalRow proposal={project} index={index} />
+          <ProposalRow proposal={project} index={index} key={index}/>
         ))}
       </Table.Body>
     </Table>

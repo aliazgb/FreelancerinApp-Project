@@ -21,7 +21,7 @@ function App() {
           <Route path="/complete-profile" element={<CompeleteProfile />} />
           <Route path="/notfound" element={<PageNotFound />} />
           <Route path="/owner" element={<OwnerLayout />}>
-            <Route index element={<Navigate to="/dashboard" replace />} />
+            <Route index element={<Navigate to="dashboard" replace />} />
             <Route path="dashboard" element={<OwnerDashboard />} />
             <Route path="projects" element={<Projects />} />
             <Route path="projects/:id" element={<Project />} />
