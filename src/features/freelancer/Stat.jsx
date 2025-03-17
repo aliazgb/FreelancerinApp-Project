@@ -23,7 +23,7 @@ function Stat({ title, icon, value, color }) {
       <h5 className="font-bold text-secondary-500 text-lg self-center">
          {title}
       </h5>
-      <p className="text-3xl font-bold text-secondary-900">4</p>
+      <p className="text-3xl font-bold text-secondary-900">{value}</p>
     </div>
   );
 }
