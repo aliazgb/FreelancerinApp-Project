@@ -13,6 +13,7 @@ import PageNotFound from "./features/pages/PageNotFound";
 import Project from "./features/pages/Project";
 import Projects from "./features/pages/Projects";
 import Proposals from "./features/ui/Proposals";
+import SubmitProjects from "./features/pages/SubmitProjects";
 const queryClient = new QueryClient();
 function App() {
   return (
@@ -33,7 +34,7 @@ function App() {
             <Route index element={<Navigate to="dashboard" replace/>} />
             <Route path="dashboard" element={<FreelancerDashboard />} />
             <Route path="proposals" element={<Proposals />} />
-            {/* <Route path="projects" element={<SubmitProjects />} /> */}
+            <Route path="projects" element={<SubmitProjects />} />
           </Route>
           <Route path="/" element={<Home />} />
         </Routes>

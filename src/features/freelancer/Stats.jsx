@@ -9,7 +9,6 @@ function Stats({ proposals }) {
     (project) => project.status === 2
   );
   const balance = numOfAcceptedProposals.reduce((acc, cur) => cur.price + acc, 0);
-  console.log(balance);
   return (
     <div className="grid grid-cols-2 gap-x-8 w-[70%]">
       <Stat
