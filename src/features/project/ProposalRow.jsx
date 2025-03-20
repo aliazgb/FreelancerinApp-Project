@@ -37,7 +37,7 @@ function ProposalRow({ proposal, index }) {
       </td>
       <td>
         <Modal open={open} onClose={()=>setOpen(false)} title=" درخواست تغییر وضعیت">
-          <ChangeProposalStatus/>
+          <ChangeProposalStatus proposalId={proposal._id} onClose={()=>setOpen(false)}/>
         </Modal>
         <button onClick={()=>setOpen(true)}>تغییر وضعیت</button>
       </td>

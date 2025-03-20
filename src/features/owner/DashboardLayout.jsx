@@ -5,6 +5,7 @@ import DashboardHeader from "./DashboardHeader";
 import Stats from "./Stats";
 function DashboardLayout() {
   const { projects, isLoading } = useOwnerProject();
+  console.log(projects)
 
   if (isLoading) return <Loader />;
   return (

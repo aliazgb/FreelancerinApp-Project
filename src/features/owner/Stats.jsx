@@ -6,6 +6,7 @@ import Stat from "../freelancer/Stat";
 
 function Stats({ projects }) {
   // console.log(projects[0].proposal.length)
+  console.log(projects.proposals)
   const numOfProjects = projects.length;
   const numOfAcceptedProjects = projects.map((project) => project.status === 2);
   const numOfProposals = projects.map((f)=>f.proposal).length

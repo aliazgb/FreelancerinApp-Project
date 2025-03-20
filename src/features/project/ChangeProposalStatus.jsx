@@ -1,5 +1,7 @@
 import React from "react";
 import { useForm } from "react-hook-form";
+import { useParams } from "react-router-dom";
+import useChangeProposalStaus from "../freelancer/projects/useChangeProposalStatus";
 import RHFSelect from "../ui/RHFSelect";
 const option = [
   {
@@ -15,10 +17,20 @@ const option = [
     value: 2,
   },
 ];
-function ChangeProposalStatus() {
+function ChangeProposalStatus({ proposalId, onClose }) {
+  const { id: projectId } = useParams();
   const { register, handleSubmit } = useForm();
-  const onSubmit = () => {
-    console.log("first");
+  const { isUpdating, chnageProposalStatus } = useChangeProposalStaus();
+  const onSubmit = (data) => {
+    chnageProposalStatus(
+      { proposalId, projectId, ...data },
+      {
+        onSuccess: () => {
+          onClose();
+          queryClient.invalidateQueries({ queryKey: ["project", projectId] });
+        },
+      }
+    );
   };
   return (
     <div>
