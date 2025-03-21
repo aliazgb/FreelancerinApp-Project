@@ -7,10 +7,11 @@ import useOwnerProject from "./useOwnerProject";
 
 function ProjectTable() {
   const { projects, isLoading } = useOwnerProject();
+  console.log(projects)
   if (isLoading) {
     return <Loading />;
   }
-  if (!projects.length > 0) {
+  if (!projects  || projects==undefined) {
     <Empty />;
   }
   return (

@@ -7,7 +7,7 @@ export default function useCategory() {
     queryFn: getCategoryApi,
   });
 
-  const { categories: rawCategories =[]} = data || {};
+  const { categories: rawCategories = [] } = data || {};
 
   const categories = rawCategories.map((item) => ({
     label: item.title,
@@ -19,5 +19,5 @@ export default function useCategory() {
     value: item.englishTitle,
   }));
 
-  return { categories, isPending };
+  return { categories, isPending, transFormedCategories };
 }
