@@ -5,13 +5,13 @@ function FilterDropDown({ options, filterField }) {
   const [searchParams, setSearchParamas] = useSearchParams();
   const value = searchParams.get(filterField) || "";
   const handleChange = (e) => {
-    searchParams.set(value, e.target.value);
+    searchParams.set(filterField, e.target.value);
     setSearchParamas(searchParams);
   };
   return (
     <select
-      value={options.value}
-      className="textField__input py-2 text-xs"
+      value={value}
+      className="textField__input py-2 text-xs bg-secondary-0"
       onChange={handleChange}
     >
       {options.map((option) => (

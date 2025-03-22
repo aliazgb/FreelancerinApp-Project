@@ -1,6 +1,7 @@
 import http from "./httpService";
 
 export function chageProposalStatusApi({ proposalId, ...data }) {
+  console.log(data)
   return http
     .patch(`/proposal/${proposalId}`, data)
     .then(({ data }) => data.data);

@@ -5,7 +5,6 @@ import ProposalTable from "../project/ProposalTable";
 import Loader from "../ui/Loader";
 function Project() {
   const { project, isLoading } = useProject();
-  console.log(project)
   if (isLoading) {
     return <Loader />;
   }

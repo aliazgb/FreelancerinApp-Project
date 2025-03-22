@@ -4,6 +4,7 @@ import truncateText from "../../../utils/truncateText";
 import Table from "../../Projects/Table";
 import CreateProposal from "../../proposals/CreateProposal";
 import Modal from "../../ui/Modal";
+import toLocalDateShort from "../../../utils/toLocalDateShort";
 
 const projectStatus = {
   OPEN: { label: "باز", className: "badge--success" },
@@ -18,7 +19,7 @@ function ProjectRow({ projects, index }) {
       <td>{index + 1}</td>
       <td>{truncateText(projects.title, 30)}</td>
       <td>{projects.budget}</td>
-      <td>{projects.deadline}</td>
+      <td>{toLocalDateShort(projects.deadline)}</td>
       <td>
         <span className={`badge ${projectStatus[projects.status].className}`}>
           {projectStatus[projects.status].label}
