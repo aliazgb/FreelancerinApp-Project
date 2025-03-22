@@ -14,11 +14,14 @@ import Project from "./features/pages/Project";
 import Projects from "./features/pages/Projects";
 import Proposals from "./features/ui/Proposals";
 import SubmitProjects from "./features/pages/SubmitProjects";
+import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
+
 const queryClient = new QueryClient();
 function App() {
   return (
     <DarkModeContextProvider>
       <QueryClientProvider client={queryClient}>
+        <ReactQueryDevtools initialIsOpen={false}/>
         <Toaster />
         <Routes>
           <Route path="/auth" element={<AuthContainer />} />

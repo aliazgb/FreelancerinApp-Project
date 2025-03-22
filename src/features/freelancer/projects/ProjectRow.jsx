@@ -8,10 +8,11 @@ import toLocalDateShort from "../../../utils/toLocalDateShort";
 
 const projectStatus = {
   OPEN: { label: "باز", className: "badge--success" },
-  CLOSED: { label: "بسته", className: "badge--danger" },
+  CLOSE: { label: "بسته", className: "badge--danger" },
 };
 
 function ProjectRow({ projects, index }) {
+  console.log(projects)
   const { _id } = projects;
   const [open, setOpen] = useState(false);
   return (
