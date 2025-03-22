@@ -1,4 +1,5 @@
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { Toaster } from "react-hot-toast";
 import { Navigate, Route, Routes } from "react-router-dom";
 import { DarkModeContextProvider } from "./context/DarkModeContext";
@@ -12,34 +13,50 @@ import OwnerDashboard from "./features/pages/OwnerDashboard";
 import PageNotFound from "./features/pages/PageNotFound";
 import Project from "./features/pages/Project";
 import Projects from "./features/pages/Projects";
-import Proposals from "./features/ui/Proposals";
 import SubmitProjects from "./features/pages/SubmitProjects";
-import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
+import NotFound from "./features/ui/NotFound";
+import Proposals from "./features/ui/Proposals";
+import ProtectedRoute from "./features/ui/ProtectedRoute";
 
 const queryClient = new QueryClient();
 function App() {
   return (
     <DarkModeContextProvider>
       <QueryClientProvider client={queryClient}>
-        <ReactQueryDevtools initialIsOpen={false}/>
+        <ReactQueryDevtools initialIsOpen={false} />
         <Toaster />
         <Routes>
           <Route path="/auth" element={<AuthContainer />} />
           <Route path="/complete-profile" element={<CompeleteProfile />} />
           <Route path="/notfound" element={<PageNotFound />} />
-          <Route path="/owner" element={<OwnerLayout />}>
+          <Route
+            path="/owner"
+            element={
+              <ProtectedRoute>
+                <OwnerLayout />
+              </ProtectedRoute>
+            }
+          >
             <Route index element={<Navigate to="dashboard" replace />} />
             <Route path="dashboard" element={<OwnerDashboard />} />
             <Route path="projects" element={<Projects />} />
             <Route path="projects/:id" element={<Project />} />
           </Route>
-          <Route path="/freelancer" element={<FreelancerLayout />}>
-            <Route index element={<Navigate to="dashboard" replace/>} />
+          <Route
+            path="/freelancer"
+            element={
+              <ProtectedRoute>
+                <FreelancerLayout />
+              </ProtectedRoute>
+            }
+          >
+            <Route index element={<Navigate to="dashboard" replace />} />
             <Route path="dashboard" element={<FreelancerDashboard />} />
             <Route path="proposals" element={<Proposals />} />
             <Route path="projects" element={<SubmitProjects />} />
           </Route>
           <Route path="/" element={<Home />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </QueryClientProvider>
     </DarkModeContextProvider>
