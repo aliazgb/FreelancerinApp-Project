@@ -1,24 +1,24 @@
 import React from "react";
 import { HiCollection, HiHome } from "react-icons/hi";
 import AppLayout from "../ui/AppLayout";
-import CustomNavlink from "../ui/CustomNavLink";
 import Sidebar from "../ui/Sidebar";
+import CousttomLinks from "../ui/CousttomLinks";
 
 function OwnerLayout() {
   return (
     <AppLayout>
       <Sidebar>
         <li>
-          <CustomNavlink to="/owner/dashboard">
+          <CousttomLinks to="/owner/dashboard">
             <HiHome />
             <span>داشبورد</span>
-          </CustomNavlink>
+          </CousttomLinks>
         </li>
         <li>
-          <CustomNavlink to="/owner/projects">
+          <CousttomLinks to="/owner/projects">
             <HiCollection />
             <span>پروژه ها</span>
-          </CustomNavlink>
+          </CousttomLinks>
         </li>
       </Sidebar>
     </AppLayout>
