@@ -1,7 +1,7 @@
 import React from "react";
 import useUser from "../authentication/useUser";
 
-function UseAvatar() {
+function Avatar() {
   const { user, isLoading } = useUser();
 
   return (
@@ -16,4 +16,4 @@ function UseAvatar() {
   );
 }
 
-export default UseAvatar;
+export default Avatar;

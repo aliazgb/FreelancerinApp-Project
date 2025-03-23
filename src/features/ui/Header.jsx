@@ -1,7 +1,7 @@
 import React from "react";
 import useUser from "../authentication/useUser";
 import HeaderMenu from "./HeaderMenu";
-import UseAvatar from "./useAvatar";
+import Avatar from "./useAvatar";
 
 function Header() {
   const { isLoading } = useUser();
@@ -12,7 +12,7 @@ function Header() {
           isLoading ? "blur-sm" : ""
         }`}
       >
-        <UseAvatar />
+        <Avatar />
         <HeaderMenu />
       </div>
     </div>
