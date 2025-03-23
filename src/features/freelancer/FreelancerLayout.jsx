@@ -2,29 +2,29 @@ import { HiCollection } from "react-icons/hi";
 import { HiHome } from "react-icons/hi2";
 import AppLayout from "../ui/AppLayout";
 import Sidebar from "../ui/Sidebar";
-import CustomNavlink from "../ui/CustomNavLink"
+import CustomNavLink from "../ui/CustomNavLink"; 
 
 function FreelancerLayout() {
   return (
     <AppLayout>
       <Sidebar>
         <li>
-          <CustomNavlink to="dashboard">
+          <CustomNavLink to="dashboard"> 
             <HiHome />
             <span>داشبورد</span>
-          </CustomNavlink>
+          </CustomNavLink>
         </li>
         <li>
-          <CustomNavlink to="projects">
+          <CustomNavLink to="projects">
             <HiCollection />
             <span>پروژه ها</span>
-          </CustomNavlink>
+          </CustomNavLink>
         </li>
         <li>
-          <CustomNavlink to="proposals">
+          <CustomNavLink to="proposals">
             <HiCollection />
             <span>درخواست ها</span>
-          </CustomNavlink>
+          </CustomNavLink>
         </li>
       </Sidebar>
     </AppLayout>
