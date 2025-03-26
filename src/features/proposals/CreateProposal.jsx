@@ -22,43 +22,43 @@ function CreateProposal({ projectId, onClose }) {
     <div>
       <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
         <TextField
-          label={"توضیحات"}
+          label={"Description"}
           required
           errors={errors}
           register={register}
           name={"description"}
           validationSchema={{
-            required: "توضیحات ضروری است",
+            required: "Description is required",
             minLength: {
               value: 10,
-              message: "این فیلد حداقل باید دارای 10 کاراکتر باشد",
+              message: "This field must have at least 10 characters",
             },
           }}
         />
         <TextField
-          label={"قیمت"}
+          label={"Price"}
           required
           errors={errors}
           register={register}
           name={"price"}
           type="number"
           validationSchema={{
-            required: "بودجه ضروریست",
+            required: "Price is required",
           }}
         />
         <TextField
-          label={"مدت زمان"}
+          label={"Duration"}
           required
           errors={errors}
           register={register}
           name={"duration"}
           type="number"
           validationSchema={{
-            required: "بودجه ضروریست",
+            required: "Duration is required",
           }}
         />
         <button type="submit" className="btn btn--primary w-full mt-4">
-          تایید
+          Confirm
         </button>
       </form>
     </div>

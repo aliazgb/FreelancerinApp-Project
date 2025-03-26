@@ -9,7 +9,7 @@ function Proposals() {
   return (
     <div>
       <h1 className="font-black text-secondary-700 mb-8 text-xl">
-        پروپوزال های شما
+        Your Proposals
       </h1>
       <ProposalTable proposals={proposals} />
     </div>

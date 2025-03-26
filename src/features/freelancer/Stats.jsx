@@ -8,23 +8,26 @@ function Stats({ proposals }) {
   const numOfAcceptedProposals = proposals.filter(
     (project) => project.status === 2
   );
-  const balance = numOfAcceptedProposals.reduce((acc, cur) => cur.price + acc, 0);
+  const balance = numOfAcceptedProposals.reduce(
+    (acc, cur) => cur.price + acc,
+    0
+  );
   return (
-    <div className="grid grid-cols-2 gap-x-8 w-[70%]">
+    <div className="grid grid-cols-1 gap-x-8 w-[70%] lg:grid-cols-2">
       <Stat
-        title=" درخواست  ها"
+        title=" Requests"
         icon={<MdGridView className="w-20 h-20" />}
         color="primary"
         value={numOfProposals}
       />
       <Stat
-        title=" درخواست های تایید شده"
+        title="Accepted Proposals"
         icon={<HiOutlineCurrencyDollar className="w-20 h-20" />}
         color="green"
         value={numOfAcceptedProposals.length}
       />
       <Stat
-        title=" کیف پول"
+        title="Wallet"
         icon={<BsCollection className="w-20 h-20" />}
         color="yellow"
         value={balance}

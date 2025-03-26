@@ -3,18 +3,19 @@ import truncateText from "../../utils/truncateText";
 import Table from "../Projects/Table";
 const proposalsStatus = [
   {
-    label: "رد شده",
+    label: "Rejected",
     className: "badge--danger",
   },
   {
-    label: "در انتظار تایید",
+    label: "Pending Approval",
     className: "badge--secondary",
   },
   {
-    label: "تایید شده",
+    label: "Approved",
     className: "badge--success",
   },
 ];
+
 function TableProposal({ proposals, index }) {
   return (
     <Table.Row>
@@ -23,7 +24,9 @@ function TableProposal({ proposals, index }) {
       <td>{proposals.duration}</td>
       <td>{proposals.price}</td>
       <td>
-        <span className={`badge ${proposalsStatus[proposals.status].className}`}>
+        <span
+          className={`badge ${proposalsStatus[proposals.status].className}`}
+        >
           {proposalsStatus[proposals.status].label}
         </span>
       </td>

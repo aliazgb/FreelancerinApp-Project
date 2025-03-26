@@ -13,11 +13,11 @@ function ProjectsTable() {
     <Table>
       <Table.Header>
         <th>#</th>
-        <th>عنوان پروژه</th>
-        <th>بودجه</th>
-        <th>ددلاین </th>
-        <th>وضعیت </th>
-        <th>عملیات</th>
+        <th>Project Title</th>
+        <th>Budget</th>
+        <th>Deadline</th>
+        <th>Status</th>
+        <th>Actions</th>
       </Table.Header>
       <Table.Body>
         {projects.map((project, index) => (

@@ -7,14 +7,18 @@ function ProposalTable({ proposals }) {
     <Table>
       <Table.Header>
         <th>#</th>
-        <th>توضیحات</th>
-        <th>زمان تحویل</th>
-        <th>هزینه</th>
-        <th>وضعیت</th>
+        <th>Description</th>
+        <th>Delivery Time</th>
+        <th>Cost</th>
+        <th>Status</th>
       </Table.Header>
       <Table.Body>
         {proposals.map((proposals, index) => (
-          <TableProposal key={proposals._id} proposals={proposals} index={index} />
+          <TableProposal
+            key={proposals._id}
+            proposals={proposals}
+            index={index}
+          />
         ))}
       </Table.Body>
     </Table>
