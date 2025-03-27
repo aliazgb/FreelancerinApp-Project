@@ -9,7 +9,7 @@ function AppLayout({ children }) {
         <Header />
         {children}
         <div className="bg-secondary-100 overflow-y-auto">
-          <div className="mx-auto max-w-screen-lg mt-10">
+          <div className="mx-auto max-w-screen-lg mt-5 lg:mt-10">
             <Outlet />
           </div>
         </div>

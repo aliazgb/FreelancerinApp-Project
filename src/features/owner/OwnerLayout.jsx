@@ -11,13 +11,13 @@ function OwnerLayout() {
         <li>
           <CousttomLinks to="/owner/dashboard">
             <HiHome />
-            <span>داشبورد</span>
+            <span>Dashboard</span>
           </CousttomLinks>
         </li>
         <li>
           <CousttomLinks to="/owner/projects">
             <HiCollection />
-            <span>پروژه ها</span>
+            <span>Projects</span>
           </CousttomLinks>
         </li>
       </Sidebar>

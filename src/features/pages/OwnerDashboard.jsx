@@ -3,7 +3,7 @@ import DashboardLayout from '../owner/DashboardLayout'
 
 function OwnerDashboard() {
   return (
-    <div><DashboardLayout /></div>
+    <div className='px-4'><DashboardLayout /></div>
   )
 }
 

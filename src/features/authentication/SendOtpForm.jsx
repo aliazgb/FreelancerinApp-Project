@@ -7,15 +7,16 @@ function SendOtpForm({ onSubmit, isSendig, register }) {
       <div className="pt-9">
         <form action="" className="space-y-6" onSubmit={onSubmit}>
           <TextField
-            label="شماره موبایل"
+            label="PhoneNumber"
             name="phoneNumber"
             register={register}
-            
           />
           {isSendig ? (
             <Loader />
           ) : (
-            <button type="submit" className="btn btn--primary w-full">ارسال کد تایید</button>
+            <button type="submit" className="btn btn--primary w-full">
+              verification code
+            </button>
           )}
         </form>
       </div>

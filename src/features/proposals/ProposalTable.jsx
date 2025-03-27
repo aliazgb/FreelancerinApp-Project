@@ -10,7 +10,7 @@ function ProposalTable({ proposals }) {
         <th>Description</th>
         <th>Delivery Time</th>
         <th>Cost</th>
-        <th>Status</th>
+        <th className="pr-10">Status</th>
       </Table.Header>
       <Table.Body>
         {proposals.map((proposals, index) => (

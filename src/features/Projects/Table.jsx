@@ -2,7 +2,7 @@ import React from "react";
 
 function Table({ children }) {
   return (
-    <div className="bg-secondary-0 overflow-x-auto">
+    <div className="bg-secondary-0 overflow-x-auto ">
       <table>{children}</table>
     </div>
   );
@@ -26,7 +26,7 @@ function TableBody({ children }) {
 }
 
 function TableRow({ children }) {
-  return <tr>{children}</tr>;
+  return <tr className="text-center">{children}</tr>;
 }
 
 Table.Header = TableHeader;

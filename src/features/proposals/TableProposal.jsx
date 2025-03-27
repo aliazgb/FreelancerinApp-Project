@@ -22,7 +22,7 @@ function TableProposal({ proposals, index }) {
       <td>{index + 1}</td>
       <td>{truncateText(proposals.description, 50)}</td>
       <td>{proposals.duration}</td>
-      <td>{proposals.price}</td>
+      <td>{proposals.price} $</td>
       <td>
         <span
           className={`badge ${proposalsStatus[proposals.status].className}`}

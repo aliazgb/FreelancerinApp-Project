@@ -11,16 +11,16 @@ function ProposalTable({ proposal, index }) {
     <Table>
       <Table.Header>
         <th>#</th>
-        <th>فریلنسر</th>
-        <th>توضیحات</th>
-        <th>زمان تحویل</th>
-        <th>هزینه </th>
-        <th>وضعیت</th>
-        <th>عملیات</th>
+        <th>Freelancer</th>
+        <th>Description</th>
+        <th>Delivery Time</th>
+        <th>Cost</th>
+        <th>Status</th>
+        <th>Change Status</th>
       </Table.Header>
       <Table.Body>
         {proposal.map((project, index) => (
-          <ProposalRow proposal={project} index={index} key={index}/>
+          <ProposalRow proposal={project} index={index} key={index} />
         ))}
       </Table.Body>
     </Table>

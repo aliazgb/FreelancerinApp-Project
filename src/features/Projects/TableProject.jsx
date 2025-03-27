@@ -18,20 +18,20 @@ function TableProject({ project, index }) {
   return (
     <Table.Row>
       <td>{index + 1}</td>
-      <td>{truncateText(project.title, 10)}</td>
+      <td className="text-center">{truncateText(project.title, 18)}</td>
       <td>{project?.category?.title}</td>
-      <td>{project.budget}</td>
+      <td className="text-center">{project.budget} $</td>
       <td>{toLocalDateShort(project.deadline)}</td>
       <td>
-        <div className="flex flex-wrap items-center gap-2 max-w[200px]">
+        <div className="flex flex-wrap items-center gap-2 max-w[200px] justify-center">
           {project.tags.map((tag) => (
-            <span key={tag} className="bade badge--secondary">
+            <span key={tag} className="bade badge--secondary ">
               {tag}
             </span>
           ))}
         </div>
       </td>
-      <td>{project.freelancer?.name || "-"}</td>
+      <td className="flex justify-center">{project?.freelancer|| "-"}</td>
       <td>
         <ToggleProjectStatus project={project} />
       </td>
@@ -72,7 +72,7 @@ function TableProject({ project, index }) {
       </td>
       <td>
         <Link to={project._id} className="flex justify-center text-primary-900">
-          <HiEye />
+          <HiEye className="w-5 h-5" />
         </Link>
       </td>
     </Table.Row>

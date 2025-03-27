@@ -10,23 +10,22 @@ function ProjectTable() {
   if (isLoading) {
     return <Loading />;
   }
-  if (!projects  || projects==undefined) {
-    <Empty />;
+  if (!projects.length || projects == undefined) {
+    return <Empty resourceName={"Projects"} />;
   }
   return (
-    
     <Table>
       <Table.Header>
         <th>#</th>
-        <th>عنوان پروژه</th>
-        <th>دسته بندی</th>
-        <th>بودجه</th>
-        <th>ددلاین</th>
-        <th>تگ ها</th>
-        <th>فریلنسر</th>
-        <th>وضعیت</th>
-        <th>عملیات</th>
-        <th>درخواست ها</th>
+        <th>Project Title</th>
+        <th>Category</th>
+        <th>Budget</th>
+        <th>Deadline</th>
+        <th>Tags</th>
+        <th>Freelancer</th>
+        <th className="text-center">Status</th>
+        <th className="text-center">Actions</th>
+        <th>Show Requests</th>
       </Table.Header>
       <Table.Body>
         {projects.map((project, index) => (

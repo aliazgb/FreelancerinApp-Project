@@ -6,10 +6,10 @@ import CreateProjectForm from "./CreateProjectForm";
 function ProjectsHeader() {
   const [open, setOpen] = useState(false);
   return (
-    <div className="flex items-center justify-between mb-8">
-      <h1 className="font-black text-secondary-700 text-xl">پروژه های شما</h1>
+    <div className="flex items-center mb-8 flex-wrap space-y-2">
+      <h1 className="font-black text-secondary-700 text-lg w-full text-center">Your Projects</h1>
       <Modal
-        title="اضافه کردن پروژه جدید"
+        title="Add New Project"
         open={open}
         onClose={() => setOpen(false)}
       >
@@ -17,10 +17,10 @@ function ProjectsHeader() {
       </Modal>
       <button
         onClick={() => setOpen(true)}
-        className="btn btn--primary flex items-center gap-x-2"
+        className="btn btn--primary flex items-center gap-x-2 w-15 h-8 "
       >
         <HiOutlinePlus />
-        <span>اضافه کردن پروژه</span>
+        <span className="text-xs">Add New Project</span>
       </button>
     </div>
   );

@@ -6,7 +6,7 @@ export function chageProposalStatusApi({ proposalId, ...data }) {
     .then(({ data }) => data.data);
 }
 
-export function getProposalsApit(id) {
+export function getProposalsApit() {
   return http.get(`/proposal/list`).then(({ data }) => data.data);
 }
 export function createProposalApi(data) {

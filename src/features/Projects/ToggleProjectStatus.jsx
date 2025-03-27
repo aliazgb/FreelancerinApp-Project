@@ -17,9 +17,8 @@ function ToggleProjectStatus({ project }) {
   return (
     <div className="w-[5rem]">
       <Switch.Group>
-        <div className="flex items-center">
-          <Switch.Label className="ml-4">
-            {enabled ? " باز" : " بسته"}
+        <div className="flex items-stretch">
+          <Switch.Label className="ml-6">
           </Switch.Label>
           <Switch
             checked={enabled}
@@ -30,7 +29,7 @@ function ToggleProjectStatus({ project }) {
           >
             <span
               className={`${
-                enabled ? "-translate-x-6" : "-translate-x-1"
+                enabled ? "translate-x-6" : "translate-x-1"
               } inline-block h-4 w-4 transform rounded-full bg-white transition-transform`}
             />
           </Switch>

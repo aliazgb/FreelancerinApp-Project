@@ -7,8 +7,9 @@ import CheckOTPForm from "./CheckOTPForm";
 import SendOtpForm from "./SendOtpForm";
 
 function AuthContainer() {
-  const { register, handleSubmit,getValues } = useForm();
+  const { register, handleSubmit, getValues } = useForm();
   const [step, setStep] = useState(1);
+  const [otp, setOtp] = useState("");
 
   const {
     isPending: isSendig,
@@ -19,10 +20,9 @@ function AuthContainer() {
     mutationFn: getOtp,
   });
   const sendOtpHandler = async (data) => {
-  
     try {
-      const { message,otp } = await mutateAsync(data);
-      toast.success(otp)
+      const { message, otp } = await mutateAsync(data);
+      setOtp(otp.toString())
       setStep(2);
       toast.success(message);
     } catch (error) {
@@ -36,7 +36,6 @@ function AuthContainer() {
           onSubmit={handleSubmit(sendOtpHandler)}
           setStep={setStep}
           register={register}
-          // isSendig={isSendig}
         />
       );
     }
@@ -48,6 +47,9 @@ function AuthContainer() {
           onBack={() => setStep((s) => s - 1)}
           otpResponse={otpResponse}
           isSendig={isSendig}
+          onSubmit={handleSubmit(sendOtpHandler)}
+          otp={otp}
+          setOtp={setOtp}
         />
       );
     }

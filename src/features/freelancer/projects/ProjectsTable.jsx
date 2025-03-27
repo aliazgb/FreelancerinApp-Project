@@ -17,7 +17,7 @@ function ProjectsTable() {
         <th>Budget</th>
         <th>Deadline</th>
         <th>Status</th>
-        <th>Actions</th>
+        <th>Send Request</th>
       </Table.Header>
       <Table.Body>
         {projects.map((project, index) => (

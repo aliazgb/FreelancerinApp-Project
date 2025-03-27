@@ -18,14 +18,14 @@ function ProjectRow({ projects, index }) {
     <Table.Row>
       <td>{index + 1}</td>
       <td>{truncateText(projects.title, 30)}</td>
-      <td>{projects.budget}</td>
+      <td>{projects.budget} $</td>
       <td>{toLocalDateShort(projects.deadline)}</td>
       <td>
         <span className={`badge ${projectStatus[projects.status].className}`}>
           {projectStatus[projects.status].label}
         </span>
       </td>
-      <td>
+      <td className="pr-8">
         <Modal
           title={`Project Completed: ${projects.title}`}
           open={open}
