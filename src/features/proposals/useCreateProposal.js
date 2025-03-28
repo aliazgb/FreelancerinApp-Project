@@ -10,7 +10,7 @@ export default function useCreateProposal() {
       onSuccess: (data) => {
         toast.success(data.message);
         queryClient.invalidateQueries({
-          queryKey: ["proposals"],
+          queryKey: ["proposal"],
         });
       },
       onError: (err) => {

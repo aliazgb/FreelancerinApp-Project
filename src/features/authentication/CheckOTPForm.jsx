@@ -32,6 +32,7 @@ function CheckOTPForm({
         );
         return;
       }
+      
       toast.success(message);
     } catch (error) {
       toast.error(error?.response?.data?.message);

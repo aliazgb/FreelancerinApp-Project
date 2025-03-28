@@ -3,7 +3,7 @@ import { getProposalsApit } from "../service/ProposalsService";
 
 export function useProposal() {
   const { data, isLoading } = useQuery({
-    queryKey: ["proposals"],
+    queryKey: ["proposal"],
     queryFn: getProposalsApit,
   });
   const { proposals } = data || {};

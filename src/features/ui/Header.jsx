@@ -1,7 +1,7 @@
 import React from "react";
 import useUser from "../authentication/useUser";
 import HeaderMenu from "./HeaderMenu";
-import Avatar from "./useAvatar";
+import Avatar from "./Avatar";
 
 function Header() {
   const { isLoading } = useUser();

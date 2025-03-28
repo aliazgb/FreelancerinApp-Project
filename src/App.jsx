@@ -17,6 +17,8 @@ import SubmitProjects from "./features/pages/SubmitProjects";
 import NotFound from "./features/ui/NotFound";
 import Proposals from "./features/ui/Proposals";
 import ProtectedRoute from "./features/ui/ProtectedRoute";
+import AdminLayOut from "./features/admin/AdminLayOut";
+import AdminDashboard from "./features/admin/AdminDashboard";
 
 const queryClient = new QueryClient();
 function App() {
@@ -51,10 +53,33 @@ function App() {
             }
           >
             <Route index element={<Navigate to="dashboard" replace />} />
+            <Route path="dashboard" element={<AdminDashboard />} />
+            <Route path="proposals" element={<Proposals />} />
+            <Route path="projects" element={<SubmitProjects />} />
+          </Route>
+
+
+
+
+          <Route
+            path="/admin"
+            element={
+              <ProtectedRoute>
+                <AdminLayOut />
+              </ProtectedRoute>
+            }
+          >
+            <Route index element={<Navigate to="dashboard" replace />} />
             <Route path="dashboard" element={<FreelancerDashboard />} />
             <Route path="proposals" element={<Proposals />} />
             <Route path="projects" element={<SubmitProjects />} />
           </Route>
+
+
+
+
+
+
           <Route path="/" element={<Home />} />
           <Route path="*" element={<NotFound />} />
         </Routes>

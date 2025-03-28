@@ -76,7 +76,7 @@ function CreateProjectForm({ onClose, editProject = {} }) {
         validationSchema={{
           required: "Filling this field is required",
           minLength: {
-            value: 10,
+            value: 5,
             message: "This field must have at least 20 characters",
           },
         }}
@@ -112,6 +112,10 @@ function CreateProjectForm({ onClose, editProject = {} }) {
         register={register}
         required
         options={categories}
+        errors={errors}
+        validationSchema={{
+          required: "Category is required",
+        }}
       />
       <div>
         <label className="mb-2 block text-secondary-700">Tags</label>
