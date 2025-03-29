@@ -3,8 +3,10 @@ import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { Toaster } from "react-hot-toast";
 import { Navigate, Route, Routes } from "react-router-dom";
 import { DarkModeContextProvider } from "./context/DarkModeContext";
+import AdminDashboard from "./features/admin/AdminDashboard";
+import AdminLayOut from "./features/admin/AdminLayOut";
+import Users from "./features/admin/user/Users";
 import AuthContainer from "./features/authentication/AuthContainer";
-import FreelancerDashboard from "./features/freelancer/FreelancerDashboard";
 import FreelancerLayout from "./features/freelancer/FreelancerLayout";
 import OwnerLayout from "./features/owner/OwnerLayout";
 import CompeleteProfile from "./features/pages/CompeleteProfile";
@@ -17,8 +19,6 @@ import SubmitProjects from "./features/pages/SubmitProjects";
 import NotFound from "./features/ui/NotFound";
 import Proposals from "./features/ui/Proposals";
 import ProtectedRoute from "./features/ui/ProtectedRoute";
-import AdminLayOut from "./features/admin/AdminLayOut";
-import AdminDashboard from "./features/admin/AdminDashboard";
 
 const queryClient = new QueryClient();
 function App() {
@@ -58,9 +58,6 @@ function App() {
             <Route path="projects" element={<SubmitProjects />} />
           </Route>
 
-
-
-
           <Route
             path="/admin"
             element={
@@ -70,15 +67,10 @@ function App() {
             }
           >
             <Route index element={<Navigate to="dashboard" replace />} />
-            <Route path="dashboard" element={<FreelancerDashboard />} />
-            <Route path="proposals" element={<Proposals />} />
+            <Route path="dashboard" element={<AdminDashboard />} />
+            <Route path="users" element={<Users/>} />
             <Route path="projects" element={<SubmitProjects />} />
           </Route>
-
-
-
-
-
 
           <Route path="/" element={<Home />} />
           <Route path="*" element={<NotFound />} />

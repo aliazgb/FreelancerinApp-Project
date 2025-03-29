@@ -3,7 +3,7 @@ import DashboardLayout from "./DashBoardLayout";
 
 function AdminDashboard() {
   return (
-    <div>
+    <div className="px-4">
       <DashboardLayout />
     </div>
   );

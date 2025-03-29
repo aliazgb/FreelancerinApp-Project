@@ -3,6 +3,7 @@ import { MdOutlineRequestQuote } from "react-icons/md";
 import AppLayout from "../ui/AppLayout";
 import CousttomLinks from "../ui/CousttomLinks";
 import Sidebar from "../ui/Sidebar";
+import { FaUserGroup } from "react-icons/fa6";
 
 function AdminLayOut() {
   return (
@@ -16,7 +17,7 @@ function AdminLayOut() {
         </li>
         <li>
           <CousttomLinks to="users">
-            <HiHome />
+            <FaUserGroup />
             <span>Users</span>
           </CousttomLinks>
         </li>
