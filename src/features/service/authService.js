@@ -21,4 +21,9 @@ export function getUsers() {
 export function logOutApi() {
   return http.post("/user/logout").then(({ data }) => data.data);
 }
+export function changeUserStatusApi({userId,data }) {
+  return http
+    .patch(`/admin/user/verify/${userId}`, data)
+    .then(({ data }) => data.data);
+}
 

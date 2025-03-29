@@ -3,6 +3,7 @@ import Table from "../../Projects/Table";
 import Modal from "../../ui/Modal";
 import ChangeProposalStatus from "../../project/ChangeProposalStatus";
 import { FaExchangeAlt } from "react-icons/fa";
+import ChangeUsersStatus from "./ChangeUsersStatus";
 
 const statusStyle = [
   {
@@ -42,8 +43,8 @@ function UserRow({ users, index }) {
           onClose={() => setOpen(false)}
           title="Request to Change Status"
         >
-          <ChangeProposalStatus
-            proposalId={users._id}
+          <ChangeUsersStatus
+            userId={users._id}
             onClose={() => setOpen(false)}
           />
         </Modal>

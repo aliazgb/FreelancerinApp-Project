@@ -6,8 +6,10 @@ export default function useAuthorize() {
   const { pathname } = useLocation();
   let isAuthenticated = false;
   if (user) isAuthenticated = true;
-
   let isAuthorized = false;
+
+  let isVerify = false;
+  if (user && Number(user.status) === 2) isVerify = true;
 
   const ROLES = {
     freelancer: "FREELANCER",
@@ -18,5 +20,5 @@ export default function useAuthorize() {
   if (Object.keys(ROLES).includes(desiredRole)) {
     if (user && user.role === ROLES[desiredRole]) isAuthorized = true;
   }
-  return { isLoading, isAuthenticated, isAuthorized, user };
+  return { isLoading, isAuthenticated, isAuthorized, user, isVerify };
 }

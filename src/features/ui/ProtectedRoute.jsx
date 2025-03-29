@@ -5,11 +5,12 @@ import Loader from "./Loader";
 
 function ProtectedRoute({ children }) {
   const navigate = useNavigate();
-  const { isLoading, isAuthenticated, isAuthorized, user } = useAuthorize();
+  const { isLoading, isAuthenticated, isAuthorized, user ,isVerify} = useAuthorize();
 
   useEffect(() => {
     if (!isAuthenticated && !isLoading) navigate("/auth");
     if (!isAuthorized && !isLoading) navigate("/not-access", { replace: true });
+    if (!isVerify && !isLoading) navigate("/auth");
   }, [isLoading, isAuthenticated, isAuthorized, navigate]);
   if (isLoading)
     return (
