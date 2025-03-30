@@ -30,8 +30,8 @@ function UserRow({ users, index }) {
       <td>
         <p>{users.email}</p>
       </td>
-      <td className="text-center">{users.phoneNumber} Day</td>
-      <td>{users.role} $</td>
+      <td className="text-center">{users.phoneNumber}</td>
+      <td>{users.role} </td>
       <td>
         <span className={`badge ${statusStyle[status].className}`}>
           {statusStyle[status].label}

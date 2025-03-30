@@ -19,6 +19,7 @@ import SubmitProjects from "./features/pages/SubmitProjects";
 import NotFound from "./features/ui/NotFound";
 import Proposals from "./features/ui/Proposals";
 import ProtectedRoute from "./features/ui/ProtectedRoute";
+import ProjectTable from "./features/Projects/ProjectTable";
 
 const queryClient = new QueryClient();
 function App() {
@@ -69,6 +70,7 @@ function App() {
             <Route index element={<Navigate to="dashboard" replace />} />
             <Route path="dashboard" element={<AdminDashboard />} />
             <Route path="users" element={<Users/>} />
+            <Route path="proposals" element={<Proposals />} />
             <Route path="projects" element={<SubmitProjects />} />
           </Route>
 

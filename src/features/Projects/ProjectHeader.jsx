@@ -7,7 +7,7 @@ function ProjectsHeader() {
   const [open, setOpen] = useState(false);
   return (
     <div className="flex items-center mb-8 flex-wrap space-y-2">
-      <h1 className="font-black text-secondary-700 text-lg w-full text-center">Your Projects</h1>
+      <h1 className="font-black text-secondary-700 text-lg w-full text-center"> Projects list</h1>
       <Modal
         title="Add New Project"
         open={open}

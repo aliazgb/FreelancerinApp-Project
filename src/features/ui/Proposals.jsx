@@ -13,7 +13,7 @@ function Proposals() {
   return (
     <div>
       <h1 className="font-black text-secondary-700 mb-8 text-xl text-center">
-        Your Proposals
+        Proposals List
       </h1>
       <ProposalTable proposals={proposals} />
     </div>
