@@ -8,7 +8,7 @@ import Modal from "../../ui/Modal";
 
 const projectStatus = {
   OPEN: { label: "Open", className: "badge--success" },
-  CLOSE: { label: "Closed", className: "badge--danger" },
+  CLOSED: { label: "Closed", className: "badge--danger" },
 };
 
 function ProjectRow({ projects, index }) {

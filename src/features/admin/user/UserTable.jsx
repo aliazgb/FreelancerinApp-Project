@@ -19,7 +19,7 @@ function UserTable() {
           <th>Phonenumber</th>
           <th>Role</th>
           <th className="pr-10">Status</th>
-          <th className="pr-10">Action</th>
+          <th className="pr-10">Change User Status</th>
         </Table.Header>
         <Table.Body>
           {users.map((user, index) => (

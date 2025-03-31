@@ -32,7 +32,9 @@ function CheckOTPForm({
         );
         return;
       }
-      
+      if (user.role === "OWNER") return navigate("/owner");
+      if (user.role === "FREELANCER") return navigate("/freelancer");
+      if (user.role === "ADMIN") return navigate("/admin");
       toast.success(message);
     } catch (error) {
       toast.error(error?.response?.data?.message);
@@ -68,7 +70,7 @@ function CheckOTPForm({
           )}
         </div>
         <form action="" className="space-y-8" onSubmit={checkOtpHandler}>
-          <p className="font-bold text-secondary-800">
+          <p className="font-bold text-secondary-0">
             Enter the verification code!
           </p>
           <OtpInput
@@ -87,6 +89,7 @@ function CheckOTPForm({
           />
           <button className="btn btn--primary w-full">Confirm</button>
         </form>
+        
       </div>
     </div>
   );

@@ -24,16 +24,17 @@ const statusOption = [
   },
   {
     label: "Closed",
-    value: "CLOSE",
+    value: "CLOSED",
   },
 ];
 
 function ProjectsHeader() {
   const { transFormedCategories } = useCategory();
+  console.log(transFormedCategories)
 
   return (
-    <div className="flex items-center justify-center text-secondary-700 mb-8  w-[100%] lg:justify-start lg:pl-3">
-      {/* <h1 className="text-lg  font-bold">Projects List</h1> */}
+    <div className="flex items-center justify-center text-secondary-700 space-y-4 flex-col mb-8  w-[100%] lg:justify-start lg:pl-3 lg:flex-col ">
+      <h1 className="text-lg  font-bold">Projects List</h1>
       <div className="flex items-center gap-x-8 flex-col space-y-2 lg:flex-row lg:space-y-0" >
         <Filter options={statusOption} filterField="status" />
         <FilterDropDown options={sortOption} filterField="sort" />

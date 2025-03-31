@@ -4,6 +4,7 @@ import Modal from "../../ui/Modal";
 import ChangeProposalStatus from "../../project/ChangeProposalStatus";
 import { FaExchangeAlt } from "react-icons/fa";
 import ChangeUsersStatus from "./ChangeUsersStatus";
+import { TbStatusChange } from "react-icons/tb";
 
 const statusStyle = [
   {
@@ -22,6 +23,7 @@ const statusStyle = [
 
 function UserRow({ users, index }) {
   const [open, setOpen] = useState();
+  console.log(users.status)
   const {status}=users
   return (
     <Table.Row>
@@ -49,7 +51,7 @@ function UserRow({ users, index }) {
           />
         </Modal>
         <button onClick={() => setOpen(true)}>
-          <FaExchangeAlt className="text-primary-900 w-4 h-4" />
+          <TbStatusChange className="text-primary-900 w-4 h-4" />
         </button>
       </td>
     </Table.Row>
