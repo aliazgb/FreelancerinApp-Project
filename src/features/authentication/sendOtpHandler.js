@@ -4,7 +4,9 @@ export const sendOtpHandler = async (data, mutateAsync, setOtp, setStep,setTeste
   try {
     const { message, otp, phoneNumber } = await mutateAsync(data);
     setOtp(otp.toString());
+
     setStep(2);
+    setTesterPhoneNumber(phoneNumber.toString())
     toast.success(message);
   } catch (error) {
     toast.error(error?.response?.data?.message);

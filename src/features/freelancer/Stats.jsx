@@ -2,6 +2,7 @@ import { BsCollection } from "react-icons/bs";
 import { HiOutlineCurrencyDollar } from "react-icons/hi";
 import { MdGridView } from "react-icons/md";
 import Stat from "./Stat";
+import { FcAcceptDatabase } from "react-icons/fc";
 
 function Stats({ proposals }) {
   const numOfProposals = proposals?.length;
@@ -22,13 +23,13 @@ function Stats({ proposals }) {
       />
       <Stat
         title="Accepted Proposals"
-        icon={<HiOutlineCurrencyDollar className="w-20 h-20" />}
+        icon={<FcAcceptDatabase className="w-20 h-20" />}
         color="green"
         value={numOfAcceptedProposals.length}
       />
       <Stat
         title="Wallet"
-        icon={<BsCollection className="w-20 h-20" />}
+        icon={<HiOutlineCurrencyDollar className="w-20 h-20" />}
         color="yellow"
         value={balance}
       />

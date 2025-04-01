@@ -8,8 +8,8 @@ function CousttomLinks({ children, to }) {
       to={to}
       className={({ isActive }) =>
         isActive
-          ? `${navLinkClasses} bg-primary-100/50 text-primary-900 `
-          : `${navLinkClasses} text-secondary-600`
+          ? `${navLinkClasses} bg-primary-0 text-primary-900 `
+          : `${navLinkClasses} text-secondary-900 hover:bg-primary-500`
       }
     >
       {children}

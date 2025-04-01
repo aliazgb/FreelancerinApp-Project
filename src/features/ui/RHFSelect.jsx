@@ -3,7 +3,7 @@ import React from "react";
 function RHFSelect({ label, name, register, options, required ,validationSchema ,errors}) {
   return (
     <div>
-      <label htmlFor={name} className="text-secondary-700">
+      <label htmlFor={name} className="text-secondary-700 text-start py-4">
         {label} {required && <span>*</span>}
       </label>
       <select

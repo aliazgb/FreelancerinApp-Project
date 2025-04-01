@@ -1,27 +1,28 @@
+import { useQueryClient } from "@tanstack/react-query";
 import React from "react";
 import { useForm } from "react-hook-form";
 import { useParams } from "react-router-dom";
 import useChangeProposalStaus from "../freelancer/projects/useChangeProposalStatus";
 import RHFSelect from "../ui/RHFSelect";
-import { QueryClient, useQueryClient } from "@tanstack/react-query";
 const options = [
   {
-    label: "رد شده",
+    label: "Rejected",
     value: 0,
   },
   {
-    label: "در انتظار تایید",
+    label: "Pending Approval",
     value: 1,
   },
   {
-    label: "تایید شده",
+    label: "Approved",
     value: 2,
   },
 ];
+
 function ChangeProposalStatus({ proposalId, onClose }) {
   const { id: projectId } = useParams();
   const { register, handleSubmit } = useForm();
-  const queryClient =useQueryClient()
+  const queryClient = useQueryClient();
   const { chnageProposalStatus } = useChangeProposalStaus();
   const onSubmit = (data) => {
     chnageProposalStatus(
@@ -39,7 +40,7 @@ function ChangeProposalStatus({ proposalId, onClose }) {
     <div>
       <form onSubmit={handleSubmit(onSubmit)}>
         <RHFSelect
-          label="تغییر وضعیت"
+          label="Change Status"
           name={"status"}
           register={register}
           required

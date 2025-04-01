@@ -8,18 +8,21 @@ function TesterRolles({
   setStep,
   setOtp,
   phoneNumber,
+  setTesterPhoneNumber
 }) {
     
   return (
-    <div className="mt-5">
+    <div className="mt-5 ">
+      
       <button
-        className="btn btn--primary"
+        className="btn--primary rounded p-2"
         onClick={handleSubmit(() =>
           sendOtpHandler(
             {  phoneNumber  },
             mutateAsync,
             setOtp,
-            setStep
+            setStep,
+            setTesterPhoneNumber
           )
         )}
       >

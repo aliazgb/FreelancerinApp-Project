@@ -3,18 +3,17 @@ import { BsCollection } from "react-icons/bs";
 import { HiOutlineCurrencyDollar } from "react-icons/hi2";
 import { MdGridView } from "react-icons/md";
 import Stat from "../freelancer/Stat";
-import useOwnerProject from "../Projects/useOwnerProject";
+import { MdOutlineAssignment } from "react-icons/md";
 
 function Stats({ projects }) {
-  
   const numOfProjects = projects.length;
   const numOfAcceptedProjects = projects.filter(
     (project) => project.status === "OPEN"
   );
-  // const numOfProposals = projects.map(
-  //   (project) => project.proposals
-  // );
-console.log(projects)
+  const numOfProposals = projects.map(
+    (project) => project.proposals
+  );
+  console.log(projects);
   return (
     <div className="grid grid-cols-1 gap-x-8 w-[70%] lg:grid-cols-2">
       <Stat
@@ -25,7 +24,7 @@ console.log(projects)
       />
       <Stat
         title="Assigned Projects"
-        icon={<HiOutlineCurrencyDollar className="w-20 h-20" />}
+        icon={<MdOutlineAssignment className="w-20 h-20" />}
         color="green"
         value={numOfAcceptedProjects.length}
       />
@@ -33,7 +32,7 @@ console.log(projects)
         title="Requests"
         icon={<BsCollection className="w-20 h-20" />}
         color="yellow"
-        value={6}
+        value={numOfProposals.length}
       />
     </div>
   );

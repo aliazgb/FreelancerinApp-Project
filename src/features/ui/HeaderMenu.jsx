@@ -15,11 +15,11 @@ function HeaderMenu() {
         <ToggleDarkmode />
       </li>
       <li>
-        {/* <Link to={"dashboard"}> */}
+        <Link to={"dashboard"}>
           <button>
             <TbUser className="text-primary-900 w-4 h-4 lg:w-6 lg:h-6 hover:text-secondary-500" />
           </button>
-        {/* </Link> */}
+        </Link>
       </li>
     </ul>
   );

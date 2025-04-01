@@ -7,18 +7,19 @@ import useChangeUsersStatus from "./useChangeUsersStatus";
 
 const options = [
   {
-    label: "رد شده",
+    label: "Rejected",
     value: 0,
   },
   {
-    label: "در انتظار تایید",
+    label: "Pending Approval",
     value: 1,
   },
   {
-    label: "تایید شده",
+    label: "Approved",
     value: 2,
   },
 ];
+
 function ChangeUsersStatus({ userId, onClose }) {
   const { id: projectId } = useParams();
   const { register, handleSubmit } = useForm();
@@ -40,14 +41,14 @@ function ChangeUsersStatus({ userId, onClose }) {
     <div>
       <form onSubmit={handleSubmit(onSubmit)}>
         <RHFSelect
-          label="تغییر وضعیت"
+          label="Change Status"
           name={"status"}
           register={register}
           required
           options={options}
         />
         <button className="btn btn--primary w-full mt-5" type="submit">
-          تایید
+          Confirm
         </button>
       </form>
     </div>

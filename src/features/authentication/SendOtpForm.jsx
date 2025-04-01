@@ -6,15 +6,15 @@ import TesterRolles from "./TesterRolles";
 const testerRolles = [
   {
     role: "Admin",
-    phoneNumber: "09351160839",
+    phoneNumber: "015211111111",
   },
   {
     role: "Freelancer",
-    phoneNumber: "09147098747",
+    phoneNumber: "015333333333",
   },
   {
     role: "Owner",
-    phoneNumber: "09144571959",
+    phoneNumber: "015222222222",
   },
 ];
 
@@ -29,8 +29,8 @@ function SendOtpForm({
   setTesterPhoneNumber,
 }) {
   return (
-    <div className="container xl:w-[30%]">
-      <div className="pt-9">
+    <div className="container xl:w-[30%] ">
+      <div className="pt-9 space-y-10">
         <form
           action=""
           className="space-y-6 text-secondary-0"
@@ -49,19 +49,29 @@ function SendOtpForm({
             </button>
           )}
         </form>
-        <form action="">
-          {testerRolles.map((item) => (
-            <TesterRolles
-              onSubmit={onSubmit}
-              handleSubmit={handleSubmit}
-              label={item.role}
-              phoneNumber={item.phoneNumber}
-              mutateAsync={mutateAsync}
-              setStep={setStep}
-              setOtp={setOtp}
-            />
-          ))}
-        </form>
+        <h1 className="text-center font-bold">or</h1>
+        <div className="flex justify-between flex-col">
+          <div>
+            <p>
+             <span className="text-red-600 font-black">* </span> You can test the application without registering your phone
+              number. Just click on one of the roles below
+            </p>
+          </div>
+          <div className="flex justify-between mt-5">
+            {testerRolles.map((item) => (
+              <TesterRolles
+                onSubmit={onSubmit}
+                handleSubmit={handleSubmit}
+                label={item.role}
+                phoneNumber={item.phoneNumber}
+                mutateAsync={mutateAsync}
+                setStep={setStep}
+                setOtp={setOtp}
+                setTesterPhoneNumber={setTesterPhoneNumber}
+              />
+            ))}
+          </div>
+        </div>
       </div>
     </div>
   );

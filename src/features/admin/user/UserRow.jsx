@@ -1,10 +1,8 @@
 import React, { useState } from "react";
+import { TbStatusChange } from "react-icons/tb";
 import Table from "../../Projects/Table";
 import Modal from "../../ui/Modal";
-import ChangeProposalStatus from "../../project/ChangeProposalStatus";
-import { FaExchangeAlt } from "react-icons/fa";
 import ChangeUsersStatus from "./ChangeUsersStatus";
-import { TbStatusChange } from "react-icons/tb";
 
 const statusStyle = [
   {
@@ -23,8 +21,7 @@ const statusStyle = [
 
 function UserRow({ users, index }) {
   const [open, setOpen] = useState();
-  console.log(users.status)
-  const {status}=users
+  const { status } = users;
   return (
     <Table.Row>
       <td>{index + 1}</td>

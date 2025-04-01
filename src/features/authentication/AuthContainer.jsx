@@ -1,5 +1,5 @@
 import { useMutation } from "@tanstack/react-query";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { getOtp } from "../service/authService";
 import CheckOTPForm from "./CheckOTPForm";
@@ -19,17 +19,6 @@ function AuthContainer() {
   } = useMutation({
     mutationFn: getOtp,
   });
-  // const sendOtpHandler = async (data) => {
-  //   console.log(data)
-  //   try {
-  //     const { message, otp } = await mutateAsync(data);
-  //     setOtp(otp.toString());
-  //     setStep(2);
-  //     toast.success(message);
-  //   } catch (error) {
-  //     toast.error(error?.response?.data?.message);
-  //   }
-  // };
   switch (step) {
     case 1: {
       return (
@@ -40,6 +29,7 @@ function AuthContainer() {
               mutateAsync,
               setOtp,
               setStep,
+              setTesterPhoneNumber
             )
           )}
           handleSubmit={handleSubmit}
@@ -47,6 +37,7 @@ function AuthContainer() {
           register={register}
           setOtp={setOtp}
           mutateAsync={mutateAsync}
+          setTesterPhoneNumber={setTesterPhoneNumber}
         />
       );
     }
@@ -55,7 +46,7 @@ function AuthContainer() {
       return (
         <CheckOTPForm
           register={register}
-          phoneNumber={getValues("phoneNumber")}
+          phoneNumber={getValues("phoneNumber")||testerPhoneNumber}
           onBack={() => setStep((s) => s - 1)}
           otpResponse={otpResponse}
           isSendig={isSendig}

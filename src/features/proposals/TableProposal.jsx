@@ -21,7 +21,7 @@ function TableProposal({ proposals, index }) {
     <Table.Row>
       <td>{index + 1}</td>
       <td>{truncateText(proposals.description, 50)}</td>
-      <td>{proposals.duration}</td>
+      <td>{proposals.duration} Days</td>
       <td>{proposals.price} $</td>
       <td>
         <span

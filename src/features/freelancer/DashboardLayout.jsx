@@ -8,7 +8,7 @@ function DashboardLayout() {
   const { proposals, isLoading } = useProposal();
   if (isLoading) return <Loader />;
   return (
-    <div>
+    <div className="px-4">
       <DashboardHeader />
       <Stats proposals={proposals} />
     </div>
