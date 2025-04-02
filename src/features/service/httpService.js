@@ -1,5 +1,5 @@
 import axios from "axios";
-const BASE_URL = "https://freelanceringapp-backend.onrender.com/api";
+const BASE_URL = "https://freelanceringapp-backend-1.onrender.com/api";
 const app = axios.create({
   baseURL: BASE_URL,
   withCredentials: true,
