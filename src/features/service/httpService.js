@@ -1,5 +1,5 @@
 import axios from "axios";
-const BASE_URL = "https://freelanceringapp-backend-1.onrender.com/api";
+const BASE_URL = "https://freelanceringapp-backend.onrender.com/api";
 const app = axios.create({
   baseURL: BASE_URL,
   withCredentials: true,
@@ -11,10 +11,10 @@ app.interceptors.response.use(
     if (err.response.status == 401 && !originalConfig._retry) {
       originalConfig._retry = true;
       try {
-        const { date } = await axios.get(`${BASE_URL}/user/refresh-token`, {
+        const { data } = await axios.get(`${BASE_URL}/user/refresh-token`, {
           withCredentials: true,
         });
-        if (date) {
+        if (data) {
           return app(originalConfig);
         }
       } catch (error) {}
