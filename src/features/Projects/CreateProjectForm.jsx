@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useForm } from "react-hook-form";
+import { useForm, Controller } from "react-hook-form";
 import { TagsInput } from "react-tag-input-component";
 import useCategory from "../hooks/useCategory";
 import DatePickerField from "../ui/DatePickerField";
@@ -7,11 +7,13 @@ import RHFSelect from "../ui/RHFSelect";
 import TextField from "../ui/TextField";
 import useCreateProject from "./useCreateProject";
 import useEditProject from "./useEditProject";
+
 function CreateProjectForm({ onClose, editProject = {} }) {
   const { _id: editId } = editProject;
   const isEditSession = Boolean(editId);
   const { categories } = useCategory();
   const { selectEdit, isEditing } = useEditProject();
+
   const {
     budget,
     title,
@@ -20,14 +22,15 @@ function CreateProjectForm({ onClose, editProject = {} }) {
     category,
     tags: prevTags,
   } = editProject;
+
   let editValue = {};
   if (isEditSession) {
     editValue = {
       title,
       budget,
       description,
-      deadline,
-      category: category._id,
+      deadline: deadline ? new Date(deadline) : "",
+      category: category?._id,
     };
   }
 
@@ -35,15 +38,16 @@ function CreateProjectForm({ onClose, editProject = {} }) {
     register,
     handleSubmit,
     formState: { errors },
+    control,
   } = useForm({ defaultValues: editValue });
-  const [date, setDate] = useState(new Date(deadline || ""));
-  const [tags, setTags] = useState(prevTags || []);
 
+  const [tags, setTags] = useState(prevTags || []);
   const { createProject, isCreating } = useCreateProject();
+
   const onSubmit = (data) => {
     const newProject = {
       ...data,
-      deadline: new Date(date).toISOString(),
+      deadline: new Date(data.deadline).toISOString(),
       tags,
     };
 
@@ -77,7 +81,7 @@ function CreateProjectForm({ onClose, editProject = {} }) {
           required: "Filling this field is required",
           minLength: {
             value: 5,
-            message: "This field must have at least 20 characters",
+            message: "This field must have at least 5 characters",
           },
         }}
       />
@@ -91,7 +95,7 @@ function CreateProjectForm({ onClose, editProject = {} }) {
           required: "Filling this field is required",
           minLength: {
             value: 15,
-            message: "This field must have at least 20 characters",
+            message: "This field must have at least 15 characters",
           },
         }}
       />
@@ -121,8 +125,34 @@ function CreateProjectForm({ onClose, editProject = {} }) {
         <label className="mb-2 block text-secondary-700 text-start">Tags</label>
         <TagsInput value={tags} onChange={setTags} name="tags" />
       </div>
-      <DatePickerField date={date} setDate={setDate} label="Deadline" />
-      <button type="submit" className="btn btn--primary w-full mt-4 text-center">
+
+      {/* Deadline with validation */}
+      <Controller
+        name="deadline"
+        control={control}
+        defaultValue={editValue.deadline || ""}
+        rules={{
+          required: "Deadline is required",
+        }}
+        render={({ field }) => (
+          <div className="mt-4">
+            <DatePickerField
+              date={field.value}
+              setDate={field.onChange}
+              label="Deadline *"
+            />
+            {errors.deadline && (
+              <p className="text-red-500 text-sm mt-1">{errors.deadline.message}</p>
+            )}
+          </div>
+        )}
+      />
+
+      <button
+        type="submit"
+        className="btn btn--primary w-full mt-4 text-center"
+        disabled={isCreating || isEditing}
+      >
         Confirm
       </button>
     </form>
