@@ -43,11 +43,10 @@ function ChangeProposalStatus({ proposalId, onClose }) {
           label="Change Status"
           name={"status"}
           register={register}
-          required
           options={options}
         />
         <button className="btn btn--primary w-full mt-5" type="submit">
-          تایید
+          Confirm
         </button>
       </form>
     </div>
