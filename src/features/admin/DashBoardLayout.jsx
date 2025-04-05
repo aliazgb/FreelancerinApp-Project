@@ -1,4 +1,4 @@
-import useOwnerProject from "../Projects/useOwnerProject";
+import { useProject } from "../Projects/useProject";
 import DashboardHeader from "../freelancer/DashboardHeader";
 import { useProposal } from "../proposals/useProposal";
 import Loader from "../ui/Loader";
@@ -8,7 +8,7 @@ import { useUsers } from "./useUsers";
 function DashboardLayout() {
   const { proposals, isLoading: isLoadingProposals } = useProposal();
   const { users, isLoading: isLoadingUsers } = useUsers();
-  const { projects, isLoading: isLoadingProjects } = useOwnerProject();
+  const { project, isLoading: isLoadingProjects } = useProject();
 
   if (isLoadingProposals || isLoadingUsers || isLoadingProjects)
     return <Loader />;
@@ -21,7 +21,7 @@ function DashboardLayout() {
       <Stats
         proposals={proposals?.length}
         users={activeUsers?.length}
-        projectList={projects?.length}
+        projectList={project?.length}
       />
     </div>
   );
