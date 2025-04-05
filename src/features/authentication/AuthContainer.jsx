@@ -42,7 +42,6 @@ function AuthContainer() {
       );
     }
     case 2: {
-      console.log(testerPhoneNumber);
       return (
         <CheckOTPForm
           register={register}

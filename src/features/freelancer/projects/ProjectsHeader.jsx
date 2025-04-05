@@ -30,7 +30,6 @@ const statusOption = [
 
 function ProjectsHeader() {
   const { transFormedCategories } = useCategory();
-  console.log(transFormedCategories)
 
   return (
     <div className="flex items-center justify-center text-secondary-700 space-y-4 flex-col mb-8  w-[100%] lg:justify-start lg:pl-3 lg:flex-col ">
