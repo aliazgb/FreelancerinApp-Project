@@ -6,17 +6,21 @@ import Stats from "./Stats";
 import { useUsers } from "./useUsers";
 
 function DashboardLayout() {
-  const { projects, isLoading: isLoading3 } = useOwnerProject();
-  const { proposals, isLoading: isLoading1 } = useProposal();
-  const { users, isLoading: isLoading2 } = useUsers();
+  const { proposals, isLoading: isLoadingProposals } = useProposal();
+  const { users, isLoading: isLoadingUsers } = useUsers();
+  const { projects, isLoading: isLoadingProjects } = useOwnerProject();
 
-  if (isLoading1 && isLoading2 && isLoading3) return <Loader />;
+  if (isLoadingProposals || isLoadingUsers || isLoadingProjects)
+    return <Loader />;
+
+  const activeUsers = users?.filter((user) => user.isActive);
+
   return (
     <div>
       <DashboardHeader />
       <Stats
         proposals={proposals?.length}
-        users={users?.length}
+        users={activeUsers?.length}
         projectList={projects?.length}
       />
     </div>

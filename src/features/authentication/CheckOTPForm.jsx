@@ -40,16 +40,9 @@ function CheckOTPForm({
       toast.error(error?.response?.data?.message);
     }
   };
-  useEffect(() => {
-    if (time === 0) return;
-    const timer = setInterval(() => {
-      setTime((t) => t - 1);
-    }, 1000);
 
-    return () => clearInterval(timer);
-  }, [time]);
   return (
-    <div className="container xl:w-[30%] ">
+    <div className="container w-[90%] flex justify-center xl:w-[30%] ">
       <div className="pt-9">
         <button onClick={onBack}>
           <HiArrowSmLeft className="w-8 h-8 text-primary-900" />
@@ -57,18 +50,12 @@ function CheckOTPForm({
         {otpResponse && (
           <p>
             {otpResponse?.message}
-            <button onClick={onBack}>
+            <button onClick={onBack} className="text-primary-900">
               <CiEdit />
             </button>
           </p>
         )}
-        <div className="mb-4">
-          {time > 0 ? (
-            <p>{time} seconds until resending the code</p>
-          ) : (
-            <button onClick={onSubmit}>Resend verification code</button>
-          )}
-        </div>
+
         <form action="" className="space-y-8" onSubmit={checkOtpHandler}>
           <p className="font-bold text-secondary-0">
             Enter the verification code!

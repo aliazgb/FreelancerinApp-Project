@@ -28,7 +28,7 @@ function AdminLayOut() {
           </CousttomLinks>
         </li>
         <li>
-          <CousttomLinks to="proposals">
+          <CousttomLinks to="proposals ">
             <MdOutlineRequestQuote />
             <span>Requests</span>
           </CousttomLinks>

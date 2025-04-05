@@ -21,6 +21,7 @@ const statusStyle = [
 ];
 
 function ProposalRow({ proposal, index }) {
+  console.log(proposal)
   const { status } = proposal;
   const [open, setOpen] = useState();
   return (

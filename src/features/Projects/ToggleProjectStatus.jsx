@@ -8,7 +8,7 @@ function ToggleProjectStatus({ project }) {
   );
   const { toggleProjectStatus, isUpdating } = useToggleStatus();
   const handleToggle = () => {
-    const status = project.status === "OPEN" ? "CLOSE" : "OPEN";
+    const status = project.status === "OPEN" ? "CLOSED" : "OPEN";
     toggleProjectStatus(
       { id: project._id, data: { status }, },
       { onSuccess: () => setEnabled((prev)=>!prev)}

@@ -7,7 +7,7 @@ import useChangeUsersStatus from "./useChangeUsersStatus";
 
 const options = [
   {
-    label: "Rejected",
+    label: "Rejected / Block",
     value: 0,
   },
   {
@@ -15,7 +15,7 @@ const options = [
     value: 1,
   },
   {
-    label: "Approved",
+    label: "Verified",
     value: 2,
   },
 ];

@@ -46,7 +46,7 @@ function AuthContainer() {
       return (
         <CheckOTPForm
           register={register}
-          phoneNumber={getValues("phoneNumber")||testerPhoneNumber}
+          phoneNumber={testerPhoneNumber || getValues("phoneNumber")}
           onBack={() => setStep((s) => s - 1)}
           otpResponse={otpResponse}
           isSendig={isSendig}

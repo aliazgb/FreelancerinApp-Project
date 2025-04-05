@@ -10,6 +10,7 @@ function UserTable() {
     if (!users.length) {
       return <Empty resourceName="Users" />;
     }
+    const activUsers=users.filter((user)=>user.isActive)
     return (
       <Table>
         <Table.Header>
@@ -22,7 +23,7 @@ function UserTable() {
           <th className="pr-10">Change User Status</th>
         </Table.Header>
         <Table.Body>
-          {users.map((user, index) => (
+          {activUsers.map((user, index) => (
             <UserRow
               key={user._id}
               users={user}

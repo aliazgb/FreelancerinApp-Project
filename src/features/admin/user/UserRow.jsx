@@ -6,7 +6,7 @@ import ChangeUsersStatus from "./ChangeUsersStatus";
 
 const statusStyle = [
   {
-    label: "Rejected",
+    label: "Rejected ",
     className: "badge--danger",
   },
   {
@@ -14,7 +14,7 @@ const statusStyle = [
     className: "badge--secondary",
   },
   {
-    label: "Approved",
+    label: "Verified",
     className: "badge--success",
   },
 ];

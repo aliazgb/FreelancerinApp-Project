@@ -11,7 +11,7 @@ const proposalsStatus = [
     className: "badge--secondary",
   },
   {
-    label: "Approved",
+    label: "Accepted",
     className: "badge--success",
   },
 ];

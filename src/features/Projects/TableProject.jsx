@@ -15,7 +15,7 @@ function TableProject({ project, index }) {
   const [isEditOpen, setIsEditOpen] = useState();
   const [isDeleteOpen, setIsDeleteOpen] = useState();
   const { removeProject, isDeleting } = useRemoveProject();
-  
+  console.log(project)
   return (
     <Table.Row>
       <td>{index + 1}</td>
@@ -32,7 +32,7 @@ function TableProject({ project, index }) {
           ))}
         </div>
       </td>
-      <td className="flex justify-center">{project?.freelancer|| "-"}</td>
+      <td className="flex justify-center">{project?.freelancer?.name|| "-"}</td>
       <td>
         <ToggleProjectStatus project={project} />
       </td>

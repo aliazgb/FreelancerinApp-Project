@@ -2,7 +2,7 @@ import React from "react";
 
 function Table({ children }) {
   return (
-    <div className="bg-secondary-0 overflow-x-auto ">
+    <div className="bg-secondary-0 overflow-x-auto text-xs lg:text-lg ">
       <table>{children}</table>
     </div>
   );

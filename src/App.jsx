@@ -7,10 +7,10 @@ import AdminDashboard from "./features/admin/AdminDashboard";
 import AdminLayOut from "./features/admin/AdminLayOut";
 import Users from "./features/admin/user/Users";
 import AuthContainer from "./features/authentication/AuthContainer";
+import DashboardLayout from "./features/freelancer/DashboardLayout";
 import FreelancerLayout from "./features/freelancer/FreelancerLayout";
 import OwnerLayout from "./features/owner/OwnerLayout";
 import CompeleteProfile from "./features/pages/CompeleteProfile";
-import Home from "./features/pages/Home";
 import OwnerDashboard from "./features/pages/OwnerDashboard";
 import PageNotFound from "./features/pages/PageNotFound";
 import Project from "./features/pages/Project";
@@ -19,8 +19,6 @@ import SubmitProjects from "./features/pages/SubmitProjects";
 import NotFound from "./features/ui/NotFound";
 import Proposals from "./features/ui/Proposals";
 import ProtectedRoute from "./features/ui/ProtectedRoute";
-import ProjectTable from "./features/Projects/ProjectTable";
-import DashboardLayout from "./features/freelancer/DashboardLayout";
 
 const queryClient = new QueryClient();
 function App() {
@@ -70,12 +68,12 @@ function App() {
           >
             <Route index element={<Navigate to="dashboard" replace />} />
             <Route path="dashboard" element={<AdminDashboard />} />
-            <Route path="users" element={<Users/>} />
+            <Route path="users" element={<Users />} />
             <Route path="proposals" element={<Proposals />} />
             <Route path="projects" element={<SubmitProjects />} />
           </Route>
 
-          <Route path="/" element={<Navigate to="/auth"/>} />
+          <Route path="/" element={<Navigate to="/auth" />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </QueryClientProvider>
