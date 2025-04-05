@@ -118,11 +118,11 @@ function CreateProjectForm({ onClose, editProject = {} }) {
         }}
       />
       <div>
-        <label className="mb-2 block text-secondary-700">Tags</label>
+        <label className="mb-2 block text-secondary-700 text-start">Tags</label>
         <TagsInput value={tags} onChange={setTags} name="tags" />
       </div>
       <DatePickerField date={date} setDate={setDate} label="Deadline" />
-      <button type="submit" className="btn btn--primary w-full mt-4">
+      <button type="submit" className="btn btn--primary w-full mt-4 text-center">
         Confirm
       </button>
     </form>

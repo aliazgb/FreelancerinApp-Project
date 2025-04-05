@@ -41,10 +41,9 @@ function ChangeUsersStatus({ userId, onClose }) {
     <div>
       <form onSubmit={handleSubmit(onSubmit)}>
         <RHFSelect
-          label="Change Status"
+          label="Change Users Status"
           name={"status"}
           register={register}
-          required
           options={options}
         />
         <button className="btn btn--primary w-full mt-5" type="submit">
