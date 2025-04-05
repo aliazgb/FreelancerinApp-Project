@@ -1,5 +1,9 @@
 This project is a freelancer platform that allows employers and freelancers to manage projects, submit proposals, and collaborate. Each user has a specific role with access to tailored features.
 
+### **Demo**:
+You can view and explore the live demo of the platform by clicking [here](https://freelancerin-app-project-8dd2.vercel.app/).
+
+
 ### 👨‍💼 **Owner Role**: After admin approval, owners can:
 - Create new projects with details (title, description, budget, etc.)
 - View their project list
@@ -35,5 +39,3 @@ The backend was developed in collaboration with a friend, where I contributed to
 ### **Test Accounts**:
 There are 3 test roles available in the application. You can explore the platform by simply clicking on the "Roles" button in the app without needing to enter any phone number.
 
-### **Demo**:
-You can view and explore the live demo of the platform by clicking [here](https://freelancerin-app-project-8dd2.vercel.app/).
