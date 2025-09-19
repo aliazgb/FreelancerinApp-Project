@@ -4,7 +4,7 @@ import Header from "./Header";
 import Sidebar from "./Sidebar";
 function AppLayout({ children }) {
   return (
-    <div className="container w-[100%]  lg:w-[80%]">
+    <div className=" w-[100%]  lg:w-[100%]">
       <div className="bg-red-200 grid h-screen grid-rows-[auto_1fr] grid-cols-[7rem_1fr] lg:grid-cols-[15rem_1fr]">
         <Header />
         {children}
